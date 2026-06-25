@@ -224,6 +224,8 @@
       border-radius: 0;
     }
     .hero-card:hover .hero-card-img { transform: scale(1.03); }
+    .hero-card-overlay { transition: background 0.3s ease; }
+    .hero-card:hover .hero-card-overlay { background: linear-gradient(to top, rgba(5,10,30,0.95) 0%, rgba(5,10,30,0.6) 55%, rgba(5,10,30,0.3) 100%); }
     .hero-card-img img { width:100%; height:100%; object-fit:cover; display:block; }
     .hero-card-overlay {
       position: absolute; inset: 0;
@@ -885,7 +887,7 @@
     <div class="hero-cards">
       <a href="#" class="hero-card reveal reveal-scale delay-1">
         <div class="hero-card-img">
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&auto=format&fit=crop" alt="Founder's Note" loading="lazy" decoding="async" />
+          <img src="Founder's Note.jpg" alt="Founder's Note" loading="lazy" decoding="async" />
         </div>
         <div class="hero-card-overlay"></div>
         <div class="hero-card-text">
@@ -895,7 +897,7 @@
       </a>
       <a href="#" class="hero-card reveal reveal-scale delay-2">
         <div class="hero-card-img">
-          <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80&auto=format&fit=crop" alt="Dialogue" loading="lazy" decoding="async" />
+          <img src="Dialogue.jpg" alt="Dialogue" loading="lazy" decoding="async" />
         </div>
         <div class="hero-card-overlay"></div>
         <div class="hero-card-text">
