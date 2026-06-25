@@ -713,6 +713,7 @@
       #hero-heading div { padding-left: 0 !important; text-align: center; width: 100%; }
       .hero-body { font-size: 17px !important; text-align: center; max-width: 480px; margin: 20px auto 0; }
       .hero-cards { display: grid; grid-template-columns: 1fr 1fr; height: 220px; margin-top: 32px; flex: none; }
+      .hero-card { min-height: 220px; }
       .hero-right { min-height: 260px; padding: 16px 40px 40px; }
       /* Newsletter */
       .newsletter { min-height: auto; }
@@ -746,7 +747,8 @@
       .hero-left { padding: 90px 24px 32px; }
       #hero-heading { font-size: clamp(38px, 11vw, 56px) !important; }
       .hero-body { font-size: 16px !important; max-width: 100%; }
-      .hero-cards { grid-template-columns: 1fr 1fr; height: 180px; margin-top: 24px; }
+      .hero-cards { grid-template-columns: 1fr; height: auto; margin-top: 24px; }
+      .hero-card { min-height: 200px; }
       .hero-right { padding: 16px 24px 32px; min-height: 220px; }
       /* Newsletter */
       .newsletter-left { padding: 48px 24px; }
@@ -781,7 +783,8 @@
       .hero-left { padding: 80px 16px 24px; }
       #hero-heading { font-size: clamp(32px, 10vw, 44px) !important; }
       .hero-body { font-size: 15px !important; }
-      .hero-cards { height: 160px; }
+      .hero-cards { grid-template-columns: 1fr; height: auto; }
+      .hero-card { min-height: 180px; }
       .newsletter-left { padding: 40px 16px; }
       .podcast-header { padding: 32px 16px; }
       .how-we-help { padding: 40px 16px; }
@@ -885,9 +888,9 @@
 
 
     <div class="hero-cards">
-      <a href="#" class="hero-card reveal reveal-scale delay-1">
+      <a href="#" class="hero-card">
         <div class="hero-card-img">
-          <img src="Founder's Note.jpg" alt="Founder's Note" loading="lazy" decoding="async" />
+          <img src="founders-note.jpg" alt="Founder's Note" loading="lazy" decoding="async" />
         </div>
         <div class="hero-card-overlay"></div>
         <div class="hero-card-text">
@@ -895,7 +898,7 @@
           <h3>Talent is not enough without structure, what I learned building inside broken systems</h3>
         </div>
       </a>
-      <a href="#" class="hero-card reveal reveal-scale delay-2">
+      <a href="#" class="hero-card">
         <div class="hero-card-img">
           <img src="Dialogue.jpg" alt="Dialogue" loading="lazy" decoding="async" />
         </div>
