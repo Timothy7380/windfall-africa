@@ -7,7 +7,15 @@
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
   <link rel="dns-prefetch" href="https://images.unsplash.com" />
   <link rel="dns-prefetch" href="https://www.mckinsey.com" />
-  <title>McKinsey &amp; Company | Global Management Consulting</title>
+  <title>Windfall Africa | Clarity. Structure. Growth.</title>
+  <meta name="description" content="Windfall Africa helps businesses close the gap between intention and execution — building the clarity and structure that makes growth consistent and scalable." />
+  <meta property="og:title" content="Windfall Africa | Clarity. Structure. Growth." />
+  <meta property="og:description" content="Windfall Africa helps businesses close the gap between intention and execution — building the clarity and structure that makes growth consistent and scalable." />
+  <meta property="og:url" content="https://timothy7380.github.io/windfall-africa/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Windfall Africa | Clarity. Structure. Growth." />
+  <meta name="twitter:description" content="Windfall Africa helps businesses close the gap between intention and execution." />
   <style>
     /* ── Hero Heading Animation ── */
     @keyframes wordReveal {
@@ -252,6 +260,7 @@
       justify-content: flex-start;
       padding: 110px 80px 32px 32px;
     }
+    /* The card box */
     .hero-right-card {
       position: relative;
       border: none;
@@ -260,12 +269,14 @@
       flex: 1;
       overflow: hidden;
     }
+    /* Illustration placeholder area */
     .hero-right-illustration {
       flex: 1;
       background: url('growth.jpg') center center / cover no-repeat;
       min-height: 340px;
       position: relative;
     }
+    /* Gold abstract shape inside */
     .hero-right-illustration::after {
       content: '';
       position: absolute;
@@ -361,6 +372,7 @@
       background-size: cover;
       background-position: 100% 15%;
     }
+    /* Dark gradient overlay, left readable, right shows photo */
     .newsletter::before {
       content: '';
       position: absolute; inset: 0; z-index: 1;
@@ -449,6 +461,7 @@
       background: rgba(0,0,0,0.35);
       border: 1.5px solid rgba(255,255,255,0.6);
       color: white; font-size: 16px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
       display: flex; align-items: center; justify-content: center;
     }
     .podcast-episode {
@@ -628,6 +641,7 @@
     }
     .societal-card {
       display: block; color: white;
+      border-radius: 12px;
       border-radius: 2px;
     }
     .societal-card-img {
@@ -701,12 +715,14 @@
 
     /* Tablet & large phone (601px – 900px) */
     @media (max-width: 900px) {
+      /* Nav */
       header { padding: 0 24px 0 0; height: 80px; justify-content: space-between; align-items: center; }
       .nav-left { margin-left: 0 !important; padding-left: 0 !important; flex: 0 0 auto; display: flex; align-items: center; }
       .nav-logo { display: flex; align-items: center; margin-left: -16px; }
       .nav-logo-img { width: 170px !important; height: auto !important; display: block !important; margin: 0 !important; }
       .nav-links { display: none !important; }
       .nav-hamburger { display: flex; flex-shrink: 0; align-self: center; }
+      /* Hero */
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-left { padding: 100px 40px 40px; display: flex; flex-direction: column; align-items: center; text-align: center; }
       #hero-heading { font-size: clamp(42px, 7vw, 64px) !important; line-height: 1.08 !important; text-align: center; letter-spacing: -0.02em !important; width: 100%; }
@@ -715,21 +731,27 @@
       .hero-cards { display: grid; grid-template-columns: 1fr 1fr; margin-top: 32px; flex: none; height: auto; }
       .hero-card { height: 400px; }
       .hero-right { min-height: 260px; padding: 16px 40px 40px; }
+      /* Newsletter */
       .newsletter { min-height: auto; overflow: hidden; }
       .newsletter-left { padding: 60px 40px; max-width: 100%; min-width: 0; box-sizing: border-box; }
       .newsletter-left h2 { font-size: clamp(20px, 3.5vw, 28px); }
       .newsletter-form { flex-direction: column; gap: 12px; width: 100%; max-width: 100%; }
       .newsletter-form input { flex: none; width: 100%; height: 56px; font-size: 16px; box-sizing: border-box; }
       .newsletter-form button { width: 100%; height: 56px; font-size: 16px; box-sizing: border-box; }
+      /* Podcast */
       .podcast-header { padding: 48px 40px; flex-direction: column; align-items: flex-start; gap: 24px; }
       .podcast-listen-btn { margin-top: 0; }
+      /* How We Help */
       .how-we-help { contain: layout; content-visibility: auto; contain-intrinsic-size: 0 600px; padding: 60px 40px; }
       .cards-grid-3 { grid-template-columns: 1fr 1fr; gap: 20px; }
+      /* Section headers */
       .section-header { padding: 0 40px; }
+      /* Careers */
       .careers { padding: 60px 40px; }
       .careers-eyebrow { margin-top: 0; }
       .careers-grid { grid-template-columns: 1fr; gap: 40px; }
       .careers-text h2 { font-size: clamp(28px, 4vw, 40px); }
+      /* Footer */
       footer { padding: 48px 40px 0; }
       .footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
@@ -737,29 +759,36 @@
 
     /* Mobile (max 600px) */
     @media (max-width: 600px) {
+      /* Nav */
       header { padding: 0 20px 0 0; height: 72px; }
       .nav-logo-img { width: 150px !important; }
+      /* Hero */
       .hero-left { padding: 90px 24px 32px; }
       #hero-heading { font-size: clamp(38px, 11vw, 56px) !important; }
       .hero-body { font-size: 16px !important; max-width: 100%; }
       .hero-cards { grid-template-columns: 1fr; height: auto; margin-top: 24px; }
       .hero-card { height: 380px; }
       .hero-right { padding: 16px 24px 32px; min-height: 220px; }
+      /* Newsletter */
       .newsletter { width: 100%; overflow: hidden; }
       .newsletter-left { padding: 48px 24px; box-sizing: border-box; min-width: 0; max-width: 100%; }
       .newsletter-left h2 { font-size: clamp(18px, 5vw, 24px); }
       .newsletter-form { flex-direction: column; gap: 10px; width: 100%; max-width: 100%; }
       .newsletter-form input { flex: none; width: 100%; height: 56px; font-size: 16px; box-sizing: border-box; }
       .newsletter-form button { width: 100%; height: 56px; font-size: 16px; box-sizing: border-box; }
+      /* Podcast */
       .podcast-header { padding: 40px 24px; }
       .podcast-header h2 { font-size: clamp(28px, 8vw, 44px); }
+      /* How We Help */
       .how-we-help { padding: 48px 24px; }
       .cards-grid-3 { grid-template-columns: 1fr; gap: 16px; }
       .section-header { padding: 0; }
       .section-header h2 { font-size: clamp(24px, 6vw, 36px); }
+      /* Careers */
       .careers { padding: 48px 24px; }
       .careers-text h2 { font-size: clamp(28px, 8vw, 40px); }
       .careers-visual { display: none; }
+      /* Footer */
       footer { padding: 40px 24px 0; }
       .footer-main { grid-template-columns: 1fr; gap: 28px; }
       .footer-brand p { max-width: 100%; }
@@ -798,12 +827,14 @@
 </head>
 <body>
 
+<!-- ══ NAVBAR ══════════════════════════════════════════════════════ -->
 <header>
   <div class="nav-left">
     <a href="/" class="nav-logo">
       <img src="windfall african white_.png" alt="Windfall" loading="eager" decoding="async" class="nav-logo-img" style="width:180px; height:auto; display:block; margin-left: 0;" />
     </a>
   </div>
+
   <nav class="nav-links">
     <a href="#what-we-do">What We Do</a>
     <a href="#our-approach">Our Approach</a>
@@ -812,11 +843,13 @@
     <a href="#careers">Careers</a>
     <a href="#about">About</a>
   </nav>
+
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </header>
 
+<!-- Mobile nav drawer -->
 <div class="mobile-nav" id="mobile-nav">
   <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
   <div class="mobile-nav-drawer">
@@ -833,7 +866,9 @@
   </div>
 </div>
 
+<!-- ══ HERO BENTO ═══════════════════════════════════════════════════ -->
 <section class="hero">
+  <!-- Left -->
   <div class="hero-left">
     <div class="hero-heading-img" style="max-width:100%;">
       <h1 id="hero-heading" style="font-family: Georgia, 'Times New Roman', serif; font-size:clamp(32px,3.8vw,58px); font-weight:700; color:white; line-height:1.3; letter-spacing:-0.01em; overflow:hidden;"></h1>
@@ -863,12 +898,15 @@
         })();
       </script>
     </div>
+
     <div style="display:flex; align-items:flex-start; gap:12px; max-width:100%; margin-bottom:40px;">
       <p id="hero-body-text" class="hero-body hero-body-animate" style="margin-bottom:0;">
         Game changing clarity. Structure. Growth. At Windfall Africa we help businesses define
         how they are structured, positioned and built to grow.
       </p>
     </div>
+
+
     <div class="hero-cards">
       <a href="#" class="hero-card">
         <div class="hero-card-img">
@@ -892,17 +930,23 @@
       </a>
     </div>
   </div>
+
+  <!-- Right -->
   <div class="hero-right">
     <div class="hero-right-card">
+      <!-- Illustration area -->
       <div class="hero-right-illustration">
         <p class="hero-right-year">2026</p>
       </div>
+      <!-- Text content -->
       <div class="hero-report">
         <p class="hero-report-label">Founder's Note</p>
         <h3>When structure is missing, execution becomes inconsistent, decisions become fragmented and growth becomes difficult to sustain</h3>
         <a href="#" class="hero-report-cta">Read the note →</a>
       </div>
     </div>
+
+    <!-- Subscribe box -->
     <div class="hero-subscribe">
       <p class="hero-subscribe-title">Stay close to insights that help your business grow with clarity.</p>
       <form onsubmit="return false;" class="hero-subscribe-form">
@@ -930,6 +974,7 @@
   </div>
 </section>
 
+<!-- ══ FEATURED NEWSLETTER ══════════════════════════════════════════ -->
 <div style="background:#0D1B3E; padding: 60px 0 0;">
 <section class="newsletter" id="our-approach">
   <div class="newsletter-left reveal reveal-left">
@@ -948,6 +993,7 @@
 </section>
 </div>
 
+<!-- ══ PODCAST ══════════════════════════════════════════════════════ -->
 <section class="podcast" id="the-dialogue">
   <div class="podcast-header reveal">
     <div class="podcast-header-left">
@@ -973,6 +1019,7 @@
   </div>
 </section>
 
+<!-- ══ HOW WE HELP CLIENTS ══════════════════════════════════════════ -->
 <section class="how-we-help" id="what-we-do">
   <div class="section-header reveal">
     <p class="section-eyebrow">How We Help Clients</p>
@@ -981,21 +1028,27 @@
   <div class="cards-grid-3">
     <a href="#" class="service-card reveal delay-1">
       <div class="service-card-img">
-        <img src="Clarity beyond execution.jpg" alt="Clarity beyond execution" loading="lazy" decoding="async" />
+        <img
+          src="Clarity beyond execution.jpg"
+          alt="Clarity beyond execution" loading="lazy" decoding="async" />
       </div>
       <h3>Clarity beyond execution</h3>
       <p>When roles are unclear and expectations shift, execution suffers. We help organizations build clarity that drives consistent and repeatable outcomes.</p>
     </a>
     <a href="#" class="service-card reveal delay-2">
       <div class="service-card-img">
-        <img src="Structure before output.jpg" alt="Structure before output" loading="lazy" decoding="async" />
+        <img
+          src="Structure before output.jpg"
+          alt="Structure before output" loading="lazy" decoding="async" />
       </div>
       <h3>Structure before output</h3>
       <p>Operating models and frameworks that align people, decisions, and execution to a shared direction, before outputs are expected.</p>
     </a>
     <a href="#" class="service-card reveal delay-3">
       <div class="service-card-img">
-        <img src="alignment before scale.jpg" alt="Alignment before scale" loading="lazy" decoding="async" />
+        <img
+          src="alignment before scale.jpg"
+          alt="Alignment before scale" loading="lazy" decoding="async" />
       </div>
       <h3>Alignment before scale</h3>
       <p>We help you build the internal alignment needed to grow without losing coherence, momentum, or the ability to execute consistently.</p>
@@ -1003,6 +1056,7 @@
   </div>
 </section>
 
+<!-- ══ CAREERS ══════════════════════════════════════════════════════ -->
 <section class="careers" id="careers">
   <p class="careers-eyebrow">Careers</p>
   <div class="careers-grid">
@@ -1023,6 +1077,9 @@
   </div>
 </section>
 
+
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════════ -->
 <footer id="about">
   <div class="footer-main">
     <div class="footer-brand">
@@ -1060,12 +1117,70 @@
 </footer>
 
 <script>
+  /* ── Podcast tabs ── */
+  const episodes = [
+    {
+      date: "June 2026",
+      title: "Structure VS Outcomes",
+      desc: "Conversation with Pencom Director Micheal Popoola, on what it takes to build organizations where clarity drives execution and structure enables outcomes at scale.",
+      duration: "38:12"
+    },
+    {
+      date: "May 2026",
+      title: "When clarity is the strategy",
+      desc: "How aligned leadership unlocks growth, a conversation on why most organizations confuse activity with direction, and what it takes to build true organizational clarity.",
+      duration: "29:40"
+    },
+    {
+      date: "April 2026",
+      title: "Building to scale",
+      desc: "Why most African businesses hit a ceiling and how to break through, the structural and operational shifts that separate businesses built to survive from those built to scale.",
+      duration: "33:55"
+    },
+    {
+      date: "March 2026",
+      title: "Execution without alignment",
+      desc: "The hidden cost of unclear roles and shifting expectations, how the absence of structure, not the absence of talent, is the real constraint in most growing organizations.",
+      duration: "27:18"
+    }
+  ];
+
+  document.getElementById('podcast-tabs').addEventListener('click', function(e) {
+    const btn = e.target.closest('.podcast-tab');
+    if (!btn) return;
+    const idx = parseInt(btn.dataset.index);
+    const ep = episodes[idx];
+
+    // Update display
+    document.getElementById('ep-date').textContent = ep.date;
+    document.getElementById('ep-title').innerHTML = ep.title;
+    document.getElementById('ep-desc').textContent = ep.desc;
+    document.getElementById('ep-duration').textContent = ep.duration;
+
+    // Update tab active states
+    document.querySelectorAll('.podcast-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+  });
+
+  /* ── Footer accordion ── */
+  function toggleFooter() {
+    const content = document.getElementById('footer-content');
+    const caret = document.getElementById('footer-caret');
+    const isOpen = content.classList.toggle('open');
+    caret.classList.toggle('open', isOpen);
+  }
+</script>
+
+
+<script>
+  /* ── Clean up will-change after hero animation ── */
   document.querySelectorAll('.hero-word, .hero-body-animate').forEach(function(el) {
     el.addEventListener('animationend', function() {
       el.style.willChange = 'auto';
     }, { once: true });
   });
 
+  /* ── Mobile nav ── */
   (function(){
     var btn = document.getElementById('nav-hamburger');
     var nav = document.getElementById('mobile-nav');
@@ -1082,12 +1197,13 @@
       link.addEventListener('click', toggleNav);
     });
 
-    document.querySelectorAll('.nav-links a').forEach(function(link){
-      link.addEventListener('click', function(){
-        document.querySelectorAll('.nav-links a').forEach(function(l){ l.classList.remove('active'); });
-        link.classList.add('active');
-      });
+  /* ── Nav active gold dash ── */
+  document.querySelectorAll('.nav-links a').forEach(function(link){
+    link.addEventListener('click', function(){
+      document.querySelectorAll('.nav-links a').forEach(function(l){ l.classList.remove('active'); });
+      link.classList.add('active');
     });
+  });
   })();
 
   (function(){
