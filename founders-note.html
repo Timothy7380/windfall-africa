@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Founder's Note — Windfall Africa</title>
+  <meta name="description" content="Talent is not enough without structure. A note from the founder of Windfall Africa on clarity, structure, and what it takes to build organizations that scale." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+      background: #f9f8f6;
+      color: #0D1B3E;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Top Bar ── */
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: 68px;
+      background: rgba(249,248,246,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(13,27,62,0.08);
+      display: flex; align-items: center;
+      padding: 0 64px;
+      justify-content: space-between;
+      z-index: 100;
+    }
+    .topbar-logo {
+      font-size: 15px; font-weight: 700;
+      letter-spacing: -0.01em; color: #0D1B3E;
+    }
+    .topbar-back {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; color: rgba(13,27,62,0.55);
+      transition: color 0.2s;
+    }
+    .topbar-back:hover { color: #0D1B3E; }
+    .topbar-back svg { flex-shrink: 0; }
+
+    /* ── Hero Banner ── */
+    .hero-banner {
+      margin-top: 68px;
+      background: linear-gradient(to right, #0a1628 0%, #0D1B3E 40%, #1a3a8f 80%, #2952d9 100%);
+      padding: 80px 64px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-banner::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('bix.jpg') center / cover no-repeat;
+      opacity: 0.07;
+    }
+    .hero-banner-inner { position: relative; z-index: 1; max-width: 800px; }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: #C9A030; margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::after {
+      content: ''; display: block;
+      width: 40px; height: 1px; background: #C9A030; opacity: 0.6;
+    }
+    .hero-banner h1 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 400;
+      color: white;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+    }
+    .hero-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 13px; color: rgba(255,255,255,0.5);
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 6px; }
+    .hero-meta-divider { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.3); }
+
+    /* ── Article Body ── */
+    .article-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 72px 40px 120px;
+    }
+
+    /* Opening pull quote */
+    .pull-quote {
+      border-left: 3px solid #C9A030;
+      padding: 4px 0 4px 28px;
+      margin-bottom: 52px;
+    }
+    .pull-quote p {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(20px, 2.2vw, 26px);
+      font-weight: 400;
+      color: #0D1B3E;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    /* Body text */
+    .article-body p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #222;
+      margin-bottom: 28px;
+    }
+    .article-body p:last-of-type { margin-bottom: 0; }
+
+    /* Section break */
+    .section-divider {
+      display: flex; align-items: center; gap: 20px;
+      margin: 56px 0;
+    }
+    .section-divider span {
+      flex: 1; height: 1px; background: rgba(13,27,62,0.12);
+    }
+    .section-divider-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #C9A030; flex-shrink: 0;
+    }
+
+    /* Callout block */
+    .callout {
+      background: #0D1B3E;
+      padding: 44px 48px;
+      margin: 56px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .callout::before {
+      content: '\201C';
+      position: absolute; top: -20px; left: 32px;
+      font-family: Georgia, serif;
+      font-size: 160px;
+      color: rgba(201,160,48,0.12);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .callout p {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(18px, 2vw, 22px);
+      font-weight: 400;
+      color: white;
+      line-height: 1.6;
+      font-style: italic;
+      position: relative; z-index: 1;
+    }
+
+    /* Principles list */
+    .principles {
+      margin: 56px 0;
+    }
+    .principles-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(13,27,62,0.4);
+      margin-bottom: 28px;
+    }
+    .principles-list { list-style: none; }
+    .principles-list li {
+      display: flex; align-items: flex-start; gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(13,27,62,0.08);
+    }
+    .principles-list li:first-child { border-top: 1px solid rgba(13,27,62,0.08); }
+    .principle-num {
+      font-size: 11px; font-weight: 700;
+      color: #C9A030; letter-spacing: 0.1em;
+      margin-top: 3px; flex-shrink: 0; width: 28px;
+    }
+    .principle-text h3 {
+      font-size: 17px; font-weight: 700;
+      color: #0D1B3E; margin-bottom: 6px;
+    }
+    .principle-text p {
+      font-size: 15px; color: rgba(13,27,62,0.6); line-height: 1.6;
+    }
+
+    /* Closing statement */
+    .closing {
+      background: #f0ede8;
+      border-left: 3px solid #0D1B3E;
+      padding: 36px 40px;
+      margin-top: 56px;
+    }
+    .closing p {
+      font-size: 17px; line-height: 1.7; color: #0D1B3E;
+      margin-bottom: 16px;
+    }
+    .closing p:last-child { margin-bottom: 0; font-style: italic; color: rgba(13,27,62,0.65); }
+
+    /* Footer bar */
+    .article-footer {
+      border-top: 1px solid rgba(13,27,62,0.1);
+      margin-top: 80px; padding-top: 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .article-footer-brand {
+      font-size: 13px; color: rgba(13,27,62,0.45); line-height: 1.6;
+    }
+    .article-footer-brand strong { color: #0D1B3E; font-weight: 700; }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #0D1B3E; color: white;
+      padding: 13px 28px; font-size: 14px; font-weight: 600;
+      transition: background 0.2s;
+    }
+    .back-btn:hover { background: #1a3a8f; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .topbar { padding: 0 24px; }
+      .hero-banner { padding: 56px 24px 52px; }
+      .article-wrap { padding: 48px 24px 80px; }
+      .callout { padding: 32px 28px; }
+      .closing { padding: 28px 24px; }
+      .article-footer { flex-direction: column; }
+    }
+    @media (max-width: 480px) {
+      .topbar-logo { display: none; }
+      .hero-banner { padding: 40px 20px 40px; }
+      .article-wrap { padding: 36px 20px 64px; }
+      .pull-quote { padding-left: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Top Bar ── -->
+<div class="topbar">
+  <a href="index.html" class="topbar-logo">Windfall Africa</a>
+  <a href="index.html" class="topbar-back">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back to home
+  </a>
+</div>
+
+<!-- ── Hero Banner ── -->
+<div class="hero-banner">
+  <div class="hero-banner-inner">
+    <p class="hero-eyebrow">Founder's Note</p>
+    <h1>Talent is not enough without structure — what I learned building inside broken systems</h1>
+    <div class="hero-meta">
+      <span>Windfall Africa</span>
+      <span class="hero-meta-divider"></span>
+      <span>2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── Article Body ── -->
+<div class="article-wrap">
+
+  <div class="pull-quote">
+    <p>"The real constraint in most organizations is rarely capability. It is clarity."</p>
+  </div>
+
+  <div class="article-body">
+    <p>I have worked in environments where roles were unclear, expectations shifted, and execution lacked alignment. Over time, I learned that talent is not enough without structure.</p>
+
+    <p>What stood out for me was not the absence of effort, but the absence of a system that consistently aligned people, decisions and execution to a shared direction.</p>
+  </div>
+
+  <div class="callout">
+    <p>When structure is missing, execution becomes inconsistent, decisions become fragmented and growth becomes difficult to sustain beyond short-term effort.</p>
+  </div>
+
+  <div class="article-body">
+    <p>This shaped how Windfall Africa operates today. These principles reflect how we believe organizations should be designed to function — not just how work should be delivered.</p>
+  </div>
+
+  <div class="principles">
+    <p class="principles-label">Our Operating Principles</p>
+    <ul class="principles-list">
+      <li>
+        <span class="principle-num">01</span>
+        <div class="principle-text">
+          <h3>Clarity beyond execution</h3>
+          <p>When roles are unclear and expectations shift, execution suffers. Clarity must precede output — it is the foundation everything else is built on.</p>
+        </div>
+      </li>
+      <li>
+        <span class="principle-num">02</span>
+        <div class="principle-text">
+          <h3>Structure before output</h3>
+          <p>Operating models and frameworks that align people, decisions, and execution to a shared direction — before outputs are expected.</p>
+        </div>
+      </li>
+      <li>
+        <span class="principle-num">03</span>
+        <div class="principle-text">
+          <h3>Alignment before scale</h3>
+          <p>Growth without internal alignment loses coherence. We build the conditions for consistent, scalable execution first — then scale.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section-divider">
+    <span></span><span class="section-divider-dot"></span><span></span>
+  </div>
+
+  <div class="closing">
+    <p>Windfall Africa exists to help businesses close the gap between intention and execution. We work with organizations to define how they are structured, how they are positioned and how they translate direction into consistent and scalable execution.</p>
+    <p>Our focus is not on isolated outputs, but on building clarity and structure that allows those outputs to be meaningful and repeatable.</p>
+  </div>
+
+  <div class="article-footer">
+    <div class="article-footer-brand">
+      <strong>Windfall Africa</strong><br>
+      Clarity. Structure. Growth.
+    </div>
+    <a href="index.html" class="back-btn">← Back to home</a>
+  </div>
+
+</div>
+
+</body>
+</html>
