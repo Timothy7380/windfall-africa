@@ -1,37 +1,9 @@
-
-  document.addEventListener("DOMContentLoaded",function(){
-    var btn=document.getElementById("ai-chat-btn"),panel=document.getElementById("chat-panel"),closeBtn=document.getElementById("chat-close"),msgs=document.getElementById("chat-messages"),input=document.getElementById("chat-input"),sendBtn=document.getElementById("chat-send"),isOpen=false,greeted=false;
-    var qa=[{k:["hello","hi","hey","good morning","good afternoon","howdy"],r:"Hello! Welcome to Windfall Africa. I'm here to help. What would you like to know?"},{k:["service","offer","what do you do","capability","help with"],r:"We help businesses close the gap between intention and execution. Our core work covers strategy, business structuring, operational clarity, and growth positioning."},{k:["contact","reach","email","phone","whatsapp","speak to"],r:"You can reach us at elitegraphicshub@gmail.com. We'd love to learn about your business."},{k:["about","who are you","windfall","company","firm"],r:"Windfall Africa is a business advisory firm helping founders and leadership teams build the clarity and structure that makes growth consistent and scalable."},{k:["founder","note","principle","operating"],r:"Our Founder's Note outlines the operating principles that guide everything we do — from how we engage clients to how we think about structure and scale."},{k:["industry","industries","sector"],r:"We work across financial services, consumer goods, professional services, technology, and more. Sector-informed, principle-led."},{k:["career","job","hiring","join","vacancy"],r:"We're always open to sharp, driven people. Visit Careers or email elitegraphicshub@gmail.com."},{k:["price","cost","fee","how much","pricing"],r:"Our engagements are scoped to the complexity of each challenge. Get in touch and we'll structure something that fits."},{k:["africa","location","where","based"],r:"Windfall Africa operates across the continent, working with businesses serious about building and growing with structure."},{k:["scale","grow","growth"],r:"Scaling means building systems that hold up as you grow. We help you get clarity and structure right first."},{k:["tech","ai","technology","digital"],r:"We integrate technology and AI thinking into our advisory work, helping businesses leverage emerging tools without losing sight of fundamentals."},{k:["insight","blog","article"],r:"We share thinking through Our Insights and Blog — covering strategy, structure, and growth. Check the navigation."},{k:["youtube","inside business","video"],r:"Inside Business is our YouTube series going deeper on conversations that matter for African business leaders."}];
-    function addMsg(text,type){var d=document.createElement("div");d.className="chat-msg chat-msg-"+type;d.textContent=text;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d;}
-    function showTyping(){var d=document.createElement("div");d.className="chat-msg chat-msg-bot chat-typing";d.innerHTML="<span></span><span></span><span></span>";msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d;}
-    function getReply(msg){var low=msg.toLowerCase();for(var i=0;i<qa.length;i++){var q=qa[i];for(var j=0;j<q.k.length;j++){if(low.includes(q.k[j]))return q.r;}}return "Thanks for your message! For detailed enquiries, email us at elitegraphicshub@gmail.com and our team will get back to you shortly.";}
-    function send(){var msg=input.value.trim();if(!msg)return;addMsg(msg,"user");input.value="";var t=showTyping();setTimeout(function(){msgs.removeChild(t);addMsg(getReply(msg),"bot");},900+Math.random()*500);}
-    btn.addEventListener("click",function(){isOpen=!isOpen;panel.classList.toggle("open",isOpen);btn.style.visibility=isOpen?"hidden":"visible";if(isOpen&&!greeted){greeted=true;setTimeout(function(){addMsg("Hello! Welcome to Windfall Africa. I'm here to answer your questions about our work, services, and approach. What would you like to know?","bot");},350);}if(isOpen)setTimeout(function(){input.focus();},400);});
-    closeBtn.addEventListener("click",function(){isOpen=false;panel.classList.remove("open");btn.style.visibility="visible";});
-    sendBtn.addEventListener("click",send);
-    input.addEventListener("keydown",function(e){if(e.key==="Enter")send();});
-  });
-</script>
-<div class="chat-panel" id="chat-panel">
-  <div class="chat-panel-header">
-    <div class="chat-panel-title">
-      <div class="chat-panel-avatar">W</div>
-      <div><div class="chat-panel-name">Windfall Africa</div><div class="chat-panel-status">Ask us anything</div></div>
-    </div>
-    <button class="chat-panel-close" id="chat-close" aria-label="Close">&times;</button>
-  </div>
-  <div class="chat-messages" id="chat-messages"></div>
-  <div class="chat-input-area">
-    <input type="text" class="chat-input" id="chat-input" placeholder="Type your message..." autocomplete="off" />
-    <button class="chat-send" id="chat-send" aria-label="Send"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-  </div>
-</div>
-</div>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Founder's Note, Windfall Africa</title>
+  <title>Founder’s Note, Windfall Africa</title>
   <meta name="description" content="Talent is not enough without structure. A note from the founder of Windfall Africa on clarity, structure, and what it takes to build organizations that scale." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,9 +11,7 @@
     body { font-family: "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif; background: #f9f8f6; color: #0D1B3E; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
     .topbar { position: fixed; top: 0; left: 0; right: 0; height: 68px; background: rgba(249,248,246,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(13,27,62,0.08); display: flex; align-items: center; padding: 0 64px 0 24px; justify-content: flex-start; z-index: 100; }
-    .topbar-logo {
-      display: flex; align-items: center; flex-shrink: 0;
-    }
+    .topbar-logo { display: flex; align-items: center; flex-shrink: 0; }
     .topbar-back { display: flex; align-items: center; gap: 8px; font-size: 14px; color: rgba(13,27,62,0.55); transition: color 0.2s; margin-left: auto; }
     .topbar-back:hover { color: #0D1B3E; }
     .topbar-back svg { flex-shrink: 0; }
@@ -60,7 +30,7 @@
     .section-divider span { flex: 1; height: 1px; background: rgba(13,27,62,0.12); }
     .section-divider-dot { width: 6px; height: 6px; border-radius: 50%; background: #C9A030; flex-shrink: 0; }
     .callout { background: #0D1B3E; padding: 44px 48px; margin: 56px 0; position: relative; overflow: hidden; }
-    .callout::before { content: '\201C'; position: absolute; top: -20px; left: 32px; font-family: Georgia, serif; font-size: 160px; color: rgba(201,160,48,0.12); line-height: 1; pointer-events: none; }
+    .callout::before { content: '“'; position: absolute; top: -20px; left: 32px; font-family: Georgia, serif; font-size: 160px; color: rgba(201,160,48,0.12); line-height: 1; pointer-events: none; }
     .callout p { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(18px, 2vw, 22px); font-weight: 400; color: white; line-height: 1.6; font-style: italic; position: relative; z-index: 1; }
     .principles { margin: 56px 0; }
     .principles-label { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(13,27,62,0.4); margin-bottom: 28px; }
@@ -76,39 +46,10 @@
     .back-btn-wrap { margin-top: 64px; padding-top: 48px; border-top: 1px solid rgba(13,27,62,0.1); }
     .back-btn { display: inline-flex; align-items: center; gap: 10px; background: #0D1B3E; color: white; padding: 13px 28px; font-size: 14px; font-weight: 600; transition: background 0.2s; }
     .back-btn:hover { background: #1a3a8f; }
-    .site-footer { background: #0D1B3E; color: rgba(255,255,255,0.75); padding: 64px 80px 40px; margin-top: 80px; }
-    .footer-inner { max-width: 100%; }
-    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; }
-    .footer-brand-col { max-width: 320px; }
-    .footer-logo { font-size: 16px; font-weight: 700; color: white; letter-spacing: -0.01em; margin-bottom: 14px; }
-    .footer-tagline { font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.5); }
-    .footer-links-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
-    .footer-links-col ul { list-style: none; }
-    .footer-links-col ul li { margin-bottom: 10px; }
-    .footer-links-col ul li a { font-size: 14px; color: rgba(255,255,255,0.65); transition: color 0.2s; }
-    .footer-links-col ul li a:hover { color: #C9A030; }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; flex-wrap: wrap; gap: 16px; }
-    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
-    .footer-gold { font-size: 12px; color: #C9A030; letter-spacing: 0.05em; }
-    @media (max-width: 768px) { .topbar { padding: 0 16px 0 0; justify-content: flex-start; } .topbar-logo { display: flex; align-items: center; flex-shrink: 0; margin-left: 0; } .hero-banner { padding: 56px 40px 52px; } .article-wrap { padding: 48px 40px 80px; } .callout { padding: 32px 28px; } .closing { padding: 28px 24px; } .site-footer { padding: 48px 24px 32px; } .footer-top { flex-direction: column; gap: 32px; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
-    @media (max-width: 480px) { .topbar-logo { display: flex; align-items: center; margin-left: 0; } .hero-banner { padding: 40px 24px 40px; } .article-wrap { padding: 36px 24px 64px; } .pull-quote { padding-left: 20px; } }
-
-    /* ── AI Chat Widget ── */
-    .ai-chat-btn {
-      position: fixed; bottom: 32px; right: 32px;
-      width: 58px; height: 58px; background: #0D1B3E;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      cursor: pointer; box-shadow: 0 4px 18px rgba(13,27,62,0.45), 0 0 0 0 rgba(201,160,48,0.35);
-      animation: chat-pulse 3.2s ease-in-out infinite; z-index: 9999;
-      transition: transform 0.2s ease; border: none;
-    }
+    .ai-chat-btn { position: fixed; bottom: 32px; right: 32px; width: 58px; height: 58px; background: #0D1B3E; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 18px rgba(13,27,62,0.45), 0 0 0 0 rgba(201,160,48,0.35); animation: chat-pulse 3.2s ease-in-out infinite; z-index: 9999; transition: transform 0.2s ease; border: none; }
     .ai-chat-btn:hover { transform: scale(1.1); animation: none; box-shadow: 0 6px 28px rgba(13,27,62,0.5), 0 0 0 8px rgba(201,160,48,0.18); }
-    @keyframes chat-pulse {
-      0%, 100% { box-shadow: 0 4px 18px rgba(13,27,62,0.45), 0 0 0 0 rgba(201,160,48,0.35); }
-      55%       { box-shadow: 0 4px 18px rgba(13,27,62,0.45), 0 0 0 12px rgba(201,160,48,0); }
-    }
+    @keyframes chat-pulse { 0%, 100% { box-shadow: 0 4px 18px rgba(13,27,62,0.45), 0 0 0 0 rgba(201,160,48,0.35); } 55% { box-shadow: 0 4px 18px rgba(13,27,62,0.45), 0 0 0 12px rgba(201,160,48,0); } }
     @media (max-width: 600px) { .ai-chat-btn { bottom: 20px; right: 20px; width: 52px; height: 52px; } }
-    /* ── Chat Panel ── */
     .chat-panel { position: fixed; bottom: 108px; right: 32px; width: 360px; height: 500px; background: white; border-radius: 16px; box-shadow: 0 20px 60px rgba(13,27,62,0.22); display: flex; flex-direction: column; z-index: 998; overflow: hidden; transform: translateY(20px) scale(0.95); opacity: 0; pointer-events: none; transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.25s ease; }
     .chat-panel.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: all; }
     .chat-panel-header { background: #0D1B3E; color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
@@ -130,66 +71,66 @@
     .chat-input-area { padding: 10px 14px; border-top: 1px solid rgba(13,27,62,0.08); display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
     .chat-input { flex: 1; border: 1.5px solid rgba(13,27,62,0.15); border-radius: 24px; padding: 9px 16px; font-size: 16px; outline: none; font-family: inherit; color: #0D1B3E; transition: border-color 0.2s; }
     .chat-input:focus { border-color: #0D1B3E; }
-    .chat-send { width: 38px; height: 38px; border-radius: 50%; background: #0D1B3E; border: none; color: white; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s; }
+    .chat-send { width: 38px; height: 38px; border-radius: 50%; background: #0D1B3E; border: none; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s; }
     .chat-send:hover { background: #C9A030; }
-    @media (max-width: 600px) { .chat-panel { position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; border-radius: 0; transform-origin: bottom center; overflow: hidden; } .chat-panel.open { transform: translateY(0) scale(1); } .chat-messages { min-height: 0; flex: 1; -webkit-overflow-scrolling: touch; } .chat-input-area { padding-bottom: max(10px, env(safe-area-inset-bottom)); } }
+    @media (max-width: 600px) { .chat-panel { position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; border-radius: 0; overflow: hidden; } .chat-panel.open { transform: translateY(0) scale(1); } .chat-messages { min-height: 0; flex: 1; -webkit-overflow-scrolling: touch; } .chat-input-area { padding-bottom: max(10px, env(safe-area-inset-bottom)); } }
+    .site-footer { background: #0D1B3E; color: rgba(255,255,255,0.75); padding: 64px 80px 40px; margin-top: 80px; }
+    .footer-inner { max-width: 100%; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; }
+    .footer-brand-col { max-width: 320px; }
+    .footer-logo { font-size: 16px; font-weight: 700; color: white; letter-spacing: -0.01em; margin-bottom: 14px; }
+    .footer-tagline { font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.5); }
+    .footer-links-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+    .footer-links-col ul { list-style: none; }
+    .footer-links-col ul li { margin-bottom: 10px; }
+    .footer-links-col ul li a { font-size: 14px; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+    .footer-links-col ul li a:hover { color: #C9A030; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; flex-wrap: wrap; gap: 16px; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+    .footer-gold { font-size: 12px; color: #C9A030; letter-spacing: 0.05em; }
+    @media (max-width: 768px) { .topbar { padding: 0 16px 0 0; justify-content: flex-start; } .topbar-logo { display: flex; align-items: center; flex-shrink: 0; margin-left: 0; } .hero-banner { padding: 56px 40px 52px; } .article-wrap { padding: 48px 40px 80px; } .callout { padding: 32px 28px; } .closing { padding: 28px 24px; } .site-footer { padding: 48px 24px 32px; } .footer-top { flex-direction: column; gap: 32px; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
+    @media (max-width: 480px) { .topbar-logo { display: flex; align-items: center; margin-left: 0; } .hero-banner { padding: 40px 24px 40px; } .article-wrap { padding: 36px 24px 64px; } .pull-quote { padding-left: 20px; } }
   </style>
 </head>
 <body>
 <div class="topbar">
-  <a href="index.html" class="topbar-logo">
-    <img src="windfall logo.png" alt="Windfall Africa" style="width:180px; height:auto; display:block;" />
-  </a>
+  <a href="index.html" class="topbar-logo"><img src="windfall logo.png" alt="Windfall Africa" style="height:38px; width:auto; display:block;" /></a>
   <a href="index.html" class="topbar-back"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to home</a>
 </div>
-<div class="hero-banner">
-  <div class="hero-banner-inner">
-    <p class="hero-eyebrow">Founder's Note</p>
-    <h1>Talent is not enough without structure: what I learned building inside broken systems</h1>
-  </div>
-</div>
+<div class="hero-banner"><div class="hero-banner-inner"><p class="hero-eyebrow">Founder’s Note</p><h1>Talent is not enough without structure: what I learned building inside broken systems</h1></div></div>
 <div class="article-wrap">
-  <div class="pull-quote"><p>"The real constraint in most organizations is rarely capability. It is clarity."</p></div>
-  <div class="article-body">
-    <p>I have worked in environments where roles were unclear, expectations shifted, and execution lacked alignment. Over time, I learned that talent is not enough without structure.</p>
-    <p>What stood out for me was not the absence of effort, but the absence of a system that consistently aligned people, decisions and execution to a shared direction.</p>
-  </div>
+  <div class="pull-quote"><p>“The real constraint in most organizations is rarely capability. It is clarity.”</p></div>
+  <div class="article-body"><p>I have worked in environments where roles were unclear, expectations shifted, and execution lacked alignment. Over time, I learned that talent is not enough without structure.</p><p>What stood out for me was not the absence of effort, but the absence of a system that consistently aligned people, decisions and execution to a shared direction.</p></div>
   <div class="callout"><p>When structure is missing, execution becomes inconsistent, decisions become fragmented and growth becomes difficult to sustain beyond short-term effort.</p></div>
   <div class="article-body"><p>This shaped how Windfall Africa operates today. These principles reflect how we believe organizations should be designed to function, not just how work should be delivered.</p></div>
   <div class="principles">
     <p class="principles-label">Our Operating Principles</p>
     <ul class="principles-list">
-      <li><span class="principle-num">01</span><div class="principle-text"><h3>Clarity beyond execution</h3><p>Clarity must precede output, it is the foundation everything else is built on.</p></div></li>
+      <li><span class="principle-num">01</span><div class="principle-text"><h3>Clarity beyond execution</h3><p>When roles are unclear and expectations shift, execution suffers. Clarity must precede output, it is the foundation everything else is built on.</p></div></li>
       <li><span class="principle-num">02</span><div class="principle-text"><h3>Structure before output</h3><p>Operating models and frameworks that align people, decisions, and execution to a shared direction, before outputs are expected.</p></div></li>
       <li><span class="principle-num">03</span><div class="principle-text"><h3>Alignment before scale</h3><p>Growth without internal alignment loses coherence. We build the conditions for consistent, scalable execution first, then scale.</p></div></li>
     </ul>
   </div>
   <div class="section-divider"><span></span><span class="section-divider-dot"></span><span></span></div>
-  <div class="closing">
-    <p>Windfall Africa exists to help businesses close the gap between intention and execution. We work with organizations to define how they are structured, how they are positioned and how they translate direction into consistent and scalable execution.</p>
-    <p>Our focus is not on isolated outputs, but on building clarity and structure that allows those outputs to be meaningful and repeatable.</p>
-  </div>
+  <div class="closing"><p>Windfall Africa exists to help businesses close the gap between intention and execution. We work with organizations to define how they are structured, how they are positioned and how they translate direction into consistent and scalable execution.</p><p>Our focus is not on isolated outputs, but on building clarity and structure that allows those outputs to be meaningful and repeatable.</p></div>
   <div class="back-btn-wrap"><a href="index.html" class="back-btn">← Back to home</a></div>
 </div>
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand-col"><div class="footer-logo">Windfall Africa</div><p class="footer-tagline">We help businesses close the gap between intention and execution, building the clarity and structure that makes growth consistent and scalable.</p></div>
-      <div class="footer-links-col"><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="founders-note.html">Founder's Note</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
-      <div class="footer-links-col"><h4>Principles</h4><ul><li><a href="#">Clarity beyond execution</a></li><li><a href="#">Structure before output</a></li><li><a href="#">Alignment before scale</a></li></ul></div>
-    </div>
-    <div class="footer-bottom"><span class="footer-copy">© 2026 Windfall Africa. All rights reserved.</span><span class="footer-gold">Clarity. Structure. Growth.</span></div>
-  </div>
-</footer>
-<!-- ══ AI Chat Widget ══ -->
-<button class="ai-chat-btn" id="ai-chat-btn" aria-label="Chat with us">
-  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M3 4C3 2.343 4.343 1 6 1H22C23.657 1 25 2.343 25 4V16C25 17.657 23.657 19 22 19H16L11 24V19H6C4.343 19 3 17.657 3 16V4Z" fill="white"/>
-    <circle cx="10" cy="11.5" r="1.8" fill="#0D1B3E"/>
-    <circle cx="15" cy="11.5" r="1.8" fill="#0D1B3E"/>
-    <circle cx="20" cy="11.5" r="1.8" fill="#0D1B3E"/>
-    <path d="M18 18C18 16.895 18.895 16 20 16H27C28.105 16 29 16.895 29 18V23C29 24.105 28.105 25 27 25H24.5L22.5 27.5V25H20C18.895 25 18 24.105 18 23V18Z" fill="#C9A030"/>
-  </svg>
-</button>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand-col"><div class="footer-logo">Windfall Africa</div><p class="footer-tagline">We help businesses close the gap between intention and execution, building the clarity and structure that makes growth consistent and scalable.</p></div><div class="footer-links-col"><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="founders-note.html">Founder’s Note</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#contact">Contact</a></li></ul></div><div class="footer-links-col"><h4>Principles</h4><ul><li><a href="#">Clarity beyond execution</a></li><li><a href="#">Structure before output</a></li><li><a href="#">Alignment before scale</a></li></ul></div></div><div class="footer-bottom"><span class="footer-copy">© 2026 Windfall Africa. All rights reserved.</span><span class="footer-gold">Clarity. Structure. Growth.</span></div></div></footer>
+<button class="ai-chat-btn" id="ai-chat-btn" aria-label="Chat with us"><svg width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M3 4C3 2.343 4.343 1 6 1H22C23.657 1 25 2.343 25 4V16C25 17.657 23.657 19 22 19H16L11 24V19H6C4.343 19 3 17.657 3 16V4Z" fill="white"/><circle cx="10" cy="11.5" r="1.8" fill="#0D1B3E"/><circle cx="15" cy="11.5" r="1.8" fill="#0D1B3E"/><circle cx="20" cy="11.5" r="1.8" fill="#0D1B3E"/><path d="M18 18C18 16.895 18.895 16 20 16H27C28.105 16 29 16.895 29 18V23C29 24.105 28.105 25 27 25H24.5L22.5 27.5V25H20C18.895 25 18 24.105 18 23V18Z" fill="#C9A030"/></svg></button>
+<div class="chat-panel" id="chat-panel"><div class="chat-panel-header"><div class="chat-panel-title"><div class="chat-panel-avatar">W</div><div><div class="chat-panel-name">Windfall Africa</div><div class="chat-panel-status">Ask us anything</div></div></div><button class="chat-panel-close" id="chat-close">&times;</button></div><div class="chat-messages" id="chat-messages"></div><div class="chat-input-area"><input type="text" class="chat-input" id="chat-input" placeholder="Type your message..." autocomplete="off" /><button class="chat-send" id="chat-send"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  var btn=document.getElementById("ai-chat-btn"),panel=document.getElementById("chat-panel"),closeBtn=document.getElementById("chat-close"),msgs=document.getElementById("chat-messages"),input=document.getElementById("chat-input"),sendBtn=document.getElementById("chat-send"),isOpen=false,greeted=false;
+  var qa=[{k:["hello","hi","hey","good morning","good afternoon"],r:"Hello! Welcome to Windfall Africa. What would you like to know?"},{k:["service","offer","capability","help with"],r:"We help businesses close the gap between intention and execution — strategy, structuring, operational clarity, and growth positioning."},{k:["contact","reach","email","whatsapp"],r:"Reach us at elitegraphicshub@gmail.com. We’d love to learn about your business."},{k:["about","who are you","windfall","firm"],r:"Windfall Africa is a business advisory firm helping founders build the clarity and structure that makes growth consistent and scalable."},{k:["founder","note","principle"],r:"Our Founder’s Note outlines the operating principles guiding everything we do — clarity, structure, alignment before scale."},{k:["industry","sector"],r:"We work across financial services, consumer goods, professional services, technology, and more."},{k:["career","job","hiring","join"],r:"We’re open to sharp, driven people. Email elitegraphicshub@gmail.com."},{k:["price","cost","fee","how much"],r:"Our engagements are scoped to each challenge. Get in touch and we’ll structure something that fits."},{k:["africa","location","based"],r:"Windfall Africa operates across the continent, working with businesses serious about structure and growth."},{k:["scale","grow","growth"],r:"Scaling means building systems that hold up as you grow. We help you get clarity and structure right first."},{k:["tech","ai","digital"],r:"We integrate technology and AI thinking into our advisory work without losing sight of fundamentals."},{k:["insight","blog","article"],r:"Check Our Insights and Blog in the navigation for thinking on strategy, structure, and growth."},{k:["youtube","inside business","video"],r:"Inside Business is our YouTube series on conversations that matter for African business leaders."}];
+  function addMsg(t,tp){var d=document.createElement("div");d.className="chat-msg chat-msg-"+tp;d.textContent=t;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d;}
+  function showTyping(){var d=document.createElement("div");d.className="chat-msg chat-msg-bot chat-typing";d.innerHTML="<span></span><span></span><span></span>";msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d;}
+  function getReply(m){var l=m.toLowerCase();for(var i=0;i<qa.length;i++){var q=qa[i];for(var j=0;j<q.k.length;j++){if(l.includes(q.k[j]))return q.r;}}return "Thanks for your message! Email us at elitegraphicshub@gmail.com and our team will get back to you shortly.";}
+  function send(){var m=input.value.trim();if(!m)return;addMsg(m,"user");input.value="";var t=showTyping();setTimeout(function(){msgs.removeChild(t);addMsg(getReply(m),"bot");},900+Math.random()*500);}
+  btn.addEventListener("click",function(){isOpen=!isOpen;panel.classList.toggle("open",isOpen);btn.style.visibility=isOpen?"hidden":"visible";if(isOpen&&!greeted){greeted=true;setTimeout(function(){addMsg("Hello! Welcome to Windfall Africa. I’m here to answer your questions about our work, services, and approach. What would you like to know?","bot");},350);}if(isOpen)setTimeout(function(){input.focus();},400);});
+  closeBtn.addEventListener("click",function(){isOpen=false;panel.classList.remove("open");btn.style.visibility="visible";});
+  sendBtn.addEventListener("click",send);
+  input.addEventListener("keydown",function(e){if(e.key==="Enter")send();});
+});
+</script>
 </body>
 </html>
