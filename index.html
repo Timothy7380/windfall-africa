@@ -852,27 +852,35 @@
         how they are structured, positioned and built to grow.
       </p>
     </div>
-    <div class="hero-cards">
-      <a href="founders-note.html" class="hero-card">
-        <div class="hero-card-img">
-          <img src="founders-note.jpg" alt="Founder's Note" loading="lazy" decoding="async" />
-        </div>
-        <div class="hero-card-overlay"></div>
-        <div class="hero-card-text">
-          <p class="hero-card-type">Founder's Note</p>
-          <h3>Talent is not enough without structure, what I learned building inside broken systems</h3>
-        </div>
-      </a>
-      <a href="#" class="hero-card">
-        <div class="hero-card-img">
-          <img src="Dialogue.jpg" alt="Dialogue" loading="lazy" decoding="async" />
-        </div>
-        <div class="hero-card-overlay"></div>
-        <div class="hero-card-text">
-          <p class="hero-card-type">Dialogue</p>
-          <h3>Structure VS Outcomes: Conversation with Pencom Director Micheal Popoola</h3>
-        </div>
-      </a>
+    <div class="hero-carousel-wrap" id="hero-carousel-wrap">
+      <div class="hero-cards" id="hero-cards">
+        <a href="founders-note.html" class="hero-card">
+          <div class="hero-card-img"><img src="founders-note.jpg" alt="Founder's Note" loading="lazy" decoding="async" /></div>
+          <div class="hero-card-overlay"></div>
+          <div class="hero-card-text"><p class="hero-card-type">Founder's Note</p><h3>Talent is not enough without structure, what I learned building inside broken systems</h3></div>
+        </a>
+        <a href="#" class="hero-card">
+          <div class="hero-card-img"><img src="Dialogue.jpg" alt="Dialogue" loading="lazy" decoding="async" /></div>
+          <div class="hero-card-overlay"></div>
+          <div class="hero-card-text"><p class="hero-card-type">Dialogue</p><h3>Structure VS Outcomes: Conversation with Pencom Director Micheal Popoola</h3></div>
+        </a>
+        <a href="#" class="hero-card">
+          <div class="hero-card-img" style="background:#0a1628;"><img src="bix.jpg" alt="Insights" loading="lazy" decoding="async" /></div>
+          <div class="hero-card-overlay"></div>
+          <div class="hero-card-text"><p class="hero-card-type">Insights</p><h3>Building for scale: Why most African businesses hit a ceiling and how to break through</h3></div>
+        </a>
+        <a href="#" class="hero-card">
+          <div class="hero-card-img" style="background:#0d1b3e;"><img src="alignment before scale.jpg" alt="Alignment" loading="lazy" decoding="async" /></div>
+          <div class="hero-card-overlay"></div>
+          <div class="hero-card-text"><p class="hero-card-type">Podcast</p><h3>Execution without alignment: The hidden cost of unclear roles and shifting expectations</h3></div>
+        </a>
+      </div>
+      <div class="carousel-dots" id="carousel-dots">
+        <button class="carousel-dot active" data-index="0"></button>
+        <button class="carousel-dot" data-index="1"></button>
+        <button class="carousel-dot" data-index="2"></button>
+        <button class="carousel-dot" data-index="3"></button>
+      </div>
     </div>
   </div>
 
@@ -1063,6 +1071,25 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
   })();
+
+(function(){
+  var track=document.getElementById("hero-cards"),wrap=document.getElementById("hero-carousel-wrap"),dots=document.querySelectorAll(".carousel-dot"),cards=document.querySelectorAll(".hero-card"),current=0,total=cards.length;
+  function getW(){return cards[0].offsetWidth+12;}
+  function goTo(idx){current=Math.max(0,Math.min(idx,total-1));track.style.transform="translateX(-"+(current*getW())+"px)";dots.forEach(function(d,i){d.classList.toggle("active",i===current);});}
+  dots.forEach(function(dot){dot.addEventListener("click",function(){goTo(parseInt(dot.dataset.index));});});
+  var startX=0,isDragging=false,moved=false;
+  function onStart(x){startX=x;isDragging=true;moved=false;track.classList.add("dragging");}
+  function onEnd(x){if(!isDragging)return;isDragging=false;track.classList.remove("dragging");var diff=startX-x;if(Math.abs(diff)>40){goTo(diff>0?current+1:current-1);}else{goTo(current);}moved=Math.abs(diff)>5;}
+  track.addEventListener("touchstart",function(e){onStart(e.touches[0].clientX);},{passive:true});
+  track.addEventListener("touchend",function(e){onEnd(e.changedTouches[0].clientX);});
+  track.addEventListener("mousedown",function(e){onStart(e.clientX);});
+  window.addEventListener("mouseup",function(e){if(isDragging)onEnd(e.clientX);});
+  track.addEventListener("click",function(e){if(moved){e.preventDefault();moved=false;}},true);
+  var timer=setInterval(function(){goTo((current+1)%total);},5000);
+  wrap.addEventListener("mouseenter",function(){clearInterval(timer);});
+  wrap.addEventListener("mouseleave",function(){timer=setInterval(function(){goTo((current+1)%total);},5000);});
+  goTo(0);
+})();
 </script>
 <!-- ── AI Chat Widget ── -->
 <button class="ai-chat-btn" id="ai-chat-btn" aria-label="Chat with us">
