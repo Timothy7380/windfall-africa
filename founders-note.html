@@ -10,12 +10,12 @@
     html { scroll-behavior: smooth; overflow-x: hidden; }
     body { font-family: "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif; background: #f9f8f6; color: #0D1B3E; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
-    .topbar { position: fixed; top: 0; left: 0; right: 0; background: rgba(249,248,246,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(13,27,62,0.08); display: flex; align-items: center; padding: 14px 20px; justify-content: space-between; z-index: 100; }
+    .topbar { position: fixed; top: 0; left: 0; right: 0; background: rgba(249,248,246,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(13,27,62,0.08); display: flex; align-items: center; padding: 16px 64px; justify-content: space-between; z-index: 100; }
     .topbar-logo { display: flex; align-items: center; flex-shrink: 0; }
     .topbar-back { display: flex; align-items: center; gap: 8px; font-size: 14px; color: rgba(13,27,62,0.55); transition: color 0.2s; }
     .topbar-back:hover { color: #0D1B3E; }
     .topbar-back svg { flex-shrink: 0; }
-    .hero-banner { margin-top: 253px; background: linear-gradient(to right, #0a1628 0%, #0D1B3E 40%, #1a3a8f 80%, #2952d9 100%); padding: 80px 64px 72px; position: relative; overflow: hidden; }
+    .hero-banner { margin-top: 258px; background: linear-gradient(to right, #0a1628 0%, #0D1B3E 40%, #1a3a8f 80%, #2952d9 100%); padding: 80px 64px 72px; position: relative; overflow: hidden; }
     .hero-banner::after { content: ''; position: absolute; inset: 0; background: url('bix.jpg') center / cover no-repeat; opacity: 0.07; }
     .hero-banner-inner { position: relative; z-index: 1; }
     .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #C9A030; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
@@ -88,8 +88,8 @@
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; flex-wrap: wrap; gap: 16px; }
     .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
     .footer-gold { font-size: 12px; color: #C9A030; letter-spacing: 0.05em; }
-    @media (max-width: 768px) { .topbar { padding: 10px 16px; } .topbar-logo img { width: 120px; } .hero-banner { margin-top: 170px; padding: 56px 40px 52px; } .article-wrap { padding: 48px 40px 80px; } .callout { padding: 32px 28px; } .closing { padding: 28px 24px; } .site-footer { padding: 48px 24px 32px; } .footer-top { flex-direction: column; gap: 32px; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
-    @media (max-width: 480px) { .topbar-logo img { width: 100px; } .hero-banner { margin-top: 144px; padding: 40px 24px 40px; } .article-wrap { padding: 36px 24px 64px; } .pull-quote { padding-left: 20px; } }
+    @media (max-width: 768px) { .topbar { padding: 10px 40px; } .topbar-logo img { width: 120px; } .hero-banner { margin-top: 171px; padding: 56px 40px 52px; } .article-wrap { padding: 48px 40px 80px; } .callout { padding: 32px 28px; } .closing { padding: 28px 24px; } .site-footer { padding: 48px 24px 32px; } .footer-top { flex-direction: column; gap: 32px; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
+    @media (max-width: 480px) { .topbar { padding: 10px 24px; } .topbar-logo img { width: 100px; } .hero-banner { margin-top: 146px; padding: 40px 24px 40px; } .article-wrap { padding: 36px 24px 64px; } .pull-quote { padding-left: 20px; } }
   </style>
 </head>
 <body>
