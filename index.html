@@ -1140,8 +1140,8 @@
   wrap.addEventListener("mouseenter",function(){clearInterval(timer);});
   wrap.addEventListener("mouseleave",function(){timer=setInterval(function(){goTo((current+1)%total);},5000);});
   goTo(0);
-})();
-  (function(){
+});
+  document.addEventListener("DOMContentLoaded",function(){
     var btn=document.getElementById("ai-chat-btn"),panel=document.getElementById("chat-panel"),closeBtn=document.getElementById("chat-close"),msgs=document.getElementById("chat-messages"),input=document.getElementById("chat-input"),sendBtn=document.getElementById("chat-send"),isOpen=false,greeted=false;
     var qa=[{k:["hello","hi","hey","good morning","good afternoon","howdy"],r:"Hello! Welcome to Windfall Africa. I'm here to help. What would you like to know about us?"},{k:["service","offer","what do you do","capability","help with"],r:"We help businesses close the gap between intention and execution. Our core work covers strategy, business structuring, operational clarity, and growth positioning."},{k:["contact","reach","email","phone","whatsapp","speak to"],r:"You can reach us at elitegraphicshub@gmail.com. We'd love to learn about your business."},{k:["about","who are you","windfall","company","firm"],r:"Windfall Africa is a business advisory firm. We work with founders and leadership teams to build the clarity and structure that makes growth consistent and scalable."},{k:["founder","note","principle","operating"],r:"Our Founder's Note outlines the operating principles that guide everything we do. You can read it on this site."},{k:["industry","industries","sector"],r:"We work across financial services, consumer goods, professional services, technology, and more. Sector-informed, principle-led."},{k:["career","job","hiring","join","vacancy"],r:"We're always open to sharp, driven people. Visit Careers or email elitegraphicshub@gmail.com."},{k:["price","cost","fee","how much","pricing"],r:"Our engagements are scoped to the complexity of each challenge. Get in touch and we'll structure something that fits."},{k:["africa","location","where","based"],r:"Windfall Africa operates across the continent, working with businesses serious about building and growing with structure."},{k:["scale","grow","growth"],r:"Scaling means building systems that hold up as you grow. We help you get clarity and structure right first."},{k:["tech","ai","technology","digital"],r:"We integrate technology and AI thinking into our advisory work, helping businesses leverage emerging tools without losing sight of fundamentals."},{k:["insight","blog","article"],r:"We share thinking through Our Insights and Blog — covering strategy, structure, and growth. Check the navigation."},{k:["youtube","inside business","video"],r:"Inside Business is our YouTube series going deeper on conversations that matter for business leaders in Africa. Find the link in the nav."}];
     function addMsg(text,type){var d=document.createElement("div");d.className="chat-msg chat-msg-"+type;d.textContent=text;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d;}
@@ -1152,7 +1152,7 @@
     closeBtn.addEventListener("click",function(){isOpen=false;panel.classList.remove("open");});
     sendBtn.addEventListener("click",send);
     input.addEventListener("keydown",function(e){if(e.key==="Enter")send();});
-  })();
+  });
 </script>
 <!-- ── AI Chat Widget ── -->
 <button class="ai-chat-btn" id="ai-chat-btn" aria-label="Chat with us">
