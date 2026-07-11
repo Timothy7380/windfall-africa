@@ -1,24 +1,14 @@
 #!/bin/bash
-# Run this once to push windfall-africa to GitHub
-# Usage: bash push-to-github.sh
-
 cd "$(dirname "$0")"
 
-# Clean up stale lock file if present
-rm -f .git/index.lock .git/tXRXfk3
+rm -f .git/index.lock
 
-# Set identity
 git config user.email "elitegraphicshub@gmail.com"
 git config user.name "Timothy"
 
-# Commit all staged files
-git add .
-git commit -m "Initial commit"
-
-# Point to GitHub and push
-git branch -M main
-git remote add origin https://github.com/Timothy7380/windfall-africa.git
-git push -u origin main
+git add index.html founders-note.jpg
+git commit -m "Fix hero cards: safe image filenames, mobile layout, hover effect"
+git push origin main
 
 echo ""
-echo "Done! Visit: https://github.com/Timothy7380/windfall-africa"
+echo "Done! https://github.com/Timothy7380/windfall-africa"

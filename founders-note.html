@@ -102,6 +102,34 @@
       margin-bottom: 28px;
     }
     .article-body p:last-of-type { margin-bottom: 0; }
+    .founder-portrait-wrap {
+      float: left;
+      width: min(300px, 42%);
+      margin: 26px 32px 20px 20px;
+      position: relative;
+    }
+    .founder-portrait-wrap::before {
+      content: '';
+      position: absolute;
+      top: -20px; left: -20px;
+      width: 65%; height: 45%;
+      background: linear-gradient(135deg, #1a3a8f, #2952d9);
+      z-index: 0;
+    }
+    .founder-portrait {
+      position: relative; z-index: 1;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @media (max-width: 640px) {
+      .founder-portrait-wrap {
+        float: none;
+        width: calc(100% - 20px);
+        max-width: 420px;
+        margin: 26px auto 28px;
+      }
+    }
 
     /* Section break */
     .section-divider {
@@ -287,8 +315,7 @@
 
     /* ── Responsive ── */
     @media (max-width: 768px) {
-      .topbar { padding: 0 40px 0 0; }
-      .topbar-logo { margin-left: -8px; }
+      .topbar { padding: 0 40px 0 8px; }
       .topbar-logo img { width: 120px; }
       .hero-banner { margin-top: 90px; padding: 56px 40px 52px; }
       .article-wrap { padding: 48px 40px 80px; }
@@ -299,8 +326,7 @@
       .footer-bottom { flex-direction: column; align-items: flex-start; }
     }
     @media (max-width: 480px) {
-      .topbar { padding: 0 20px 0 0; }
-      .topbar-logo { margin-left: -8px; }
+      .topbar { padding: 0 20px 0 8px; }
       .topbar-logo img { width: 100px; }
       .hero-banner { margin-top: 90px; padding: 40px 24px 40px; }
       .article-wrap { padding: 36px 24px 64px; }
@@ -331,6 +357,10 @@
 
 <!-- ── Article Body ── -->
 <div class="article-wrap">
+
+  <div class="founder-portrait-wrap">
+    <img src="founder-portrait.jpg" alt="Founder of Windfall Africa" class="founder-portrait" loading="lazy" decoding="async" />
+  </div>
 
   <div class="pull-quote">
     <p>"The real constraint in most organizations is rarely capability. It is clarity."</p>
