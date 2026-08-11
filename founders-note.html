@@ -148,6 +148,14 @@
       }
     }
 
+    /* Everything below the intro clears the floated portrait */
+    .callout,
+    .principles,
+    .section-divider,
+    .closing,
+    .back-btn-wrap { clear: both; }
+    .callout + .article-body p { text-indent: 0; }
+
     /* Section break */
     .section-divider {
       display: flex; align-items: center; gap: 20px;
@@ -397,7 +405,7 @@
     <p>When structure is missing, execution becomes inconsistent, decisions become fragmented and growth becomes difficult to sustain beyond short-term effort.</p>
   </div>
 
-  <div class="article-body">
+  <div class="article-body" style="clear:both;">
     <p>This shaped how Windfall Africa operates today. These principles reflect how we believe organizations should be designed to function, not just how work should be delivered.</p>
   </div>
 
