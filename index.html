@@ -707,16 +707,36 @@
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
     }
+    .careers-video video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .video-veil {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,18,44,0.5), rgba(10,18,44,0.15));
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+    .careers-video.playing .video-veil { opacity: 0; }
     .play-circle {
+      position: relative; z-index: 2;
       width: 72px; height: 72px; border-radius: 50%;
       background: rgba(255,255,255,0.95);
       border: none;
       color: #0D1B3E; font-size: 24px; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.3s ease;
     }
     .play-circle:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(0,0,0,0.4); }
+    .careers-video.playing .play-circle {
+      opacity: 0; pointer-events: none; transform: scale(0.8);
+    }
+    .careers-video.playing:hover .play-circle {
+      opacity: 1; pointer-events: auto; transform: scale(1);
+    }
 
     /* ── Societal Impact ── */
     .societal {
@@ -1240,8 +1260,19 @@
     </div>
     <div class="careers-visual reveal reveal-right">
       <div class="careers-deco"></div>
-      <div class="careers-video">
-        <button class="play-circle" aria-label="Play video">▶</button>
+      <div class="careers-video" id="careers-video">
+        <video
+          id="careers-player"
+          poster="careers-poster.jpg"
+          preload="none"
+          playsinline
+          muted
+          loop
+          aria-label="Life at Windfall Africa">
+          <source src="careers.mp4" type="video/mp4" />
+        </video>
+        <div class="video-veil"></div>
+        <button class="play-circle" id="careers-play" aria-label="Play video">▶</button>
       </div>
     </div>
   </div>
@@ -1391,6 +1422,47 @@
       link.classList.add('active');
     });
   });
+  })();
+
+  /* ── Careers showreel ── */
+  (function(){
+    var wrap = document.getElementById('careers-video');
+    var video = document.getElementById('careers-player');
+    var btn = document.getElementById('careers-play');
+    if (!wrap || !video || !btn) return;
+
+    function toggle() {
+      if (video.paused) {
+        video.play();
+        wrap.classList.add('playing');
+        btn.textContent = '❚❚';
+        btn.setAttribute('aria-label', 'Pause video');
+      } else {
+        video.pause();
+        wrap.classList.remove('playing');
+        btn.textContent = '▶';
+        btn.setAttribute('aria-label', 'Play video');
+      }
+    }
+
+    btn.addEventListener('click', toggle);
+    video.addEventListener('click', toggle);
+    video.addEventListener('ended', function(){
+      wrap.classList.remove('playing');
+      btn.textContent = '▶';
+    });
+
+    /* Pause when scrolled out of view so it never plays unseen */
+    var vis = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (!entry.isIntersecting && !video.paused) {
+          video.pause();
+          wrap.classList.remove('playing');
+          btn.textContent = '▶';
+        }
+      });
+    }, { threshold: 0.25 });
+    vis.observe(wrap);
   })();
 
   (function(){
