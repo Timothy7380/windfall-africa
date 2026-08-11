@@ -122,6 +122,23 @@
       height: auto;
       display: block;
     }
+    .founder-caption {
+      position: relative; z-index: 1;
+      margin-top: 14px;
+      padding-left: 14px;
+      border-left: 3px solid #C9A030;
+    }
+    .founder-name {
+      display: block;
+      font-size: 17px; font-weight: 700;
+      color: #0D1B3E; line-height: 1.3;
+    }
+    .founder-role {
+      display: block;
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 0.04em;
+      color: #666; margin-top: 3px;
+    }
     @media (max-width: 640px) {
       .founder-portrait-wrap {
         float: none;
@@ -358,9 +375,13 @@
 <!-- ── Article Body ── -->
 <div class="article-wrap">
 
-  <div class="founder-portrait-wrap">
-    <img src="founder-portrait.jpg" alt="Founder of Windfall Africa" class="founder-portrait" loading="lazy" decoding="async" />
-  </div>
+  <figure class="founder-portrait-wrap">
+    <img src="founder-portrait.jpg" alt="Eniola Cmas, Founder of Windfall Africa" class="founder-portrait" loading="lazy" decoding="async" />
+    <figcaption class="founder-caption">
+      <span class="founder-name">Eniola Cmas</span>
+      <span class="founder-role">Founder, Windfall Africa</span>
+    </figcaption>
+  </figure>
 
   <div class="pull-quote">
     <p>"The real constraint in most organizations is rarely capability. It is clarity."</p>
