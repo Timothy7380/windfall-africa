@@ -107,8 +107,11 @@
       display: grid;
       grid-template-columns: minmax(240px, 320px) 1fr;
       gap: 52px;
-      align-items: start;
-      margin-bottom: 56px;
+      align-items: stretch;
+      margin-bottom: 40px;
+    }
+    .intro-text {
+      display: flex; flex-direction: column; justify-content: center;
     }
     .intro-text .pull-quote { margin-bottom: 32px; }
     .intro-text .article-body p:last-child { margin-bottom: 0; }
@@ -116,6 +119,8 @@
       position: relative;
       margin: 0;
       overflow: hidden;
+      height: 100%;
+      min-height: 400px;
     }
     .founder-portrait-wrap::before {
       content: '';
@@ -128,13 +133,15 @@
     .founder-portrait {
       position: relative; z-index: 1;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
       display: block;
     }
     .founder-caption {
       position: absolute; z-index: 2;
       left: 0; right: 0; bottom: 0;
-      padding: 48px 18px 16px;
+      padding: 52px 20px 30px;
       background: linear-gradient(to top, rgba(10,18,44,0.94) 20%, rgba(10,18,44,0.6) 60%, rgba(10,18,44,0) 100%);
     }
     .founder-name {
@@ -154,7 +161,8 @@
         gap: 32px;
         margin-bottom: 44px;
       }
-      .founder-portrait-wrap { max-width: 420px; margin: 0 auto; width: 100%; }
+      .founder-portrait-wrap { max-width: 420px; margin: 0 auto; width: 100%; height: auto; min-height: 0; }
+      .founder-portrait { height: auto; }
     }
 
     /* Section break */
