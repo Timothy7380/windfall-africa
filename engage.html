@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engage With Us, Windfall Africa</title>
+  <meta name="description" content="Partner with Windfall Africa, become a member, subscribe to our newsletters and press releases, or get in touch with our team." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+    body {
+      font-family: "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+      background: #f9f8f6;
+      color: #0D1B3E;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input, textarea, select { font-family: inherit; }
+
+    /* ── Top Bar ── */
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: 90px;
+      background: rgba(249,248,246,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(13,27,62,0.08);
+      display: flex; align-items: center;
+      padding: 0 64px 0 24px;
+      justify-content: space-between;
+      z-index: 100;
+    }
+    .topbar-logo { display: flex; align-items: center; flex-shrink: 0; }
+    .topbar-back {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; color: rgba(13,27,62,0.55);
+      transition: color 0.2s;
+    }
+    .topbar-back:hover { color: #0D1B3E; }
+
+    /* ── Hero ── */
+    .hero-banner {
+      margin-top: 90px;
+      background: linear-gradient(to right, #0a1628 0%, #0D1B3E 40%, #1a3a8f 80%, #2952d9 100%);
+      padding: 76px 64px 68px;
+      position: relative; overflow: hidden;
+    }
+    .hero-banner::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('bix.jpg') center / cover no-repeat;
+      opacity: 0.07;
+    }
+    .hero-banner-inner { position: relative; z-index: 1; max-width: 780px; }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: #C9A030; margin-bottom: 22px;
+    }
+    .hero-banner h1 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 400; color: white;
+      line-height: 1.18; letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+    .hero-banner p {
+      font-size: 17px; line-height: 1.7;
+      color: rgba(255,255,255,0.72);
+      max-width: 620px;
+    }
+
+    /* ── Layout ── */
+    .wrap { padding: 64px 64px 90px; }
+    .wrap-intro {
+      display: inline-block;
+      background: #0D1B3E;
+      color: white;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      padding: 11px 22px;
+      margin-bottom: 26px;
+    }
+
+    /* ── Accordion ── */
+    .accordion { border-top: 1px solid rgba(13,27,62,0.14); }
+    .acc-item {
+      border-bottom: 1px solid rgba(13,27,62,0.14);
+      scroll-margin-top: 120px;
+      position: relative;
+    }
+    .acc-item::before {
+      content: '';
+      position: absolute; top: -1px; left: 0;
+      width: 0; height: 2px;
+      background: #C9A030;
+      transition: width 0.4s cubic-bezier(0.22,1,0.36,1);
+    }
+    .acc-item.open::before { width: 100%; }
+    .acc-header {
+      width: 100%;
+      background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; gap: 26px;
+      padding: 30px 8px 30px 0;
+      text-align: left;
+      transition: padding-left 0.25s ease;
+    }
+    .acc-header:hover { padding-left: 8px; }
+    .acc-num {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 30px; font-weight: 400;
+      color: rgba(13,27,62,0.16);
+      line-height: 1; flex-shrink: 0;
+      width: 46px;
+      transition: color 0.25s ease;
+    }
+    .acc-item.open .acc-num,
+    .acc-header:hover .acc-num { color: #C9A030; }
+    .acc-titles { flex: 1; min-width: 0; }
+    .acc-title {
+      display: block;
+      font-size: 20px; font-weight: 700;
+      color: #0D1B3E; line-height: 1.3;
+    }
+    .acc-sub {
+      display: block;
+      font-size: 14px; color: rgba(13,27,62,0.55);
+      margin-top: 5px; line-height: 1.5;
+    }
+    .acc-icon {
+      position: relative;
+      width: 20px; height: 20px;
+      flex-shrink: 0; margin-left: 12px;
+    }
+    .acc-icon::before,
+    .acc-icon::after {
+      content: '';
+      position: absolute; top: 50%; left: 0;
+      width: 20px; height: 1.5px;
+      background: #0D1B3E;
+      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
+    }
+    .acc-icon::after { transform: rotate(90deg); }
+    .acc-item.open .acc-icon::after { transform: rotate(0deg); }
+    .acc-item.open .acc-icon::before { background: #C9A030; }
+    .acc-item.open .acc-icon::after { background: #C9A030; }
+
+    .acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.22,1,0.36,1);
+    }
+    .acc-body-inner { padding: 4px 0 40px 72px; }
+    .acc-lead {
+      font-size: 16px; line-height: 1.75;
+      color: rgba(13,27,62,0.65);
+      max-width: 620px; margin-bottom: 28px;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: white;
+      border: 1px solid rgba(13,27,62,0.09);
+      padding: 32px 34px;
+      max-width: 720px;
+    }
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(13,27,62,0.12);
+      margin-bottom: 28px;
+      max-width: 720px;
+    }
+    .benefits > div {
+      padding: 24px 22px 22px;
+      border-right: 1px solid rgba(13,27,62,0.1);
+    }
+    .benefits > div:last-child { border-right: none; }
+    .benefit-num {
+      font-family: Georgia, serif;
+      font-size: 28px; color: rgba(13,27,62,0.14);
+      line-height: 1; margin-bottom: 12px;
+    }
+    .benefits h3 { font-size: 16px; font-weight: 700; margin-bottom: 7px; }
+    .benefits p { font-size: 14px; line-height: 1.6; color: rgba(13,27,62,0.62); }
+
+    /* ── Forms ── */
+    .field { margin-bottom: 18px; }
+    .field label {
+      display: block;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(13,27,62,0.5);
+      margin-bottom: 8px;
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 13px 15px;
+      font-size: 15px;
+      color: #0D1B3E;
+      background: #fbfbfa;
+      border: 1px solid rgba(13,27,62,0.16);
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus { border-color: #0D1B3E; background: white; }
+    .field textarea { resize: vertical; min-height: 105px; line-height: 1.6; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #0D1B3E; color: white;
+      padding: 14px 30px;
+      font-size: 14.5px; font-weight: 600;
+      border: none; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: #1a3a8f; }
+    .btn-gold { background: #C9A030; }
+    .btn-gold:hover { background: #b08a20; }
+    .form-note {
+      font-size: 12.5px; color: rgba(13,27,62,0.45);
+      margin-top: 14px; line-height: 1.6;
+    }
+    .form-success {
+      display: none;
+      margin-top: 16px; padding: 13px 16px;
+      background: rgba(201,160,48,0.1);
+      border-left: 3px solid #C9A030;
+      font-size: 14px;
+    }
+    .form-success.show { display: block; }
+    .form-success.error {
+      background: rgba(180,40,40,0.07);
+      border-left-color: #b42828;
+    }
+    .hp {
+      position: absolute !important;
+      width: 1px; height: 1px;
+      overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap;
+    }
+    .btn:disabled { opacity: 0.6; cursor: default; }
+
+    /* ── Contact ── */
+    .contact-split {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 24px; max-width: 720px;
+    }
+    .contact-list a,
+    .contact-list div.ci {
+      display: flex; align-items: flex-start; gap: 13px;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(13,27,62,0.08);
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+    .contact-list a:hover { color: #C9A030; }
+    .contact-list svg {
+      width: 17px; height: 17px; flex-shrink: 0;
+      color: #C9A030; margin-top: 2px;
+    }
+    .ci-label {
+      display: block; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(13,27,62,0.4); margin-bottom: 3px;
+    }
+    .signin-card { max-width: 420px; }
+    .signin-alt {
+      margin-top: 20px; padding-top: 18px;
+      border-top: 1px solid rgba(13,27,62,0.1);
+      font-size: 14px; color: rgba(13,27,62,0.6);
+    }
+    .signin-alt a { color: #1a3a8f; font-weight: 600; }
+    .signin-alt a:hover { color: #C9A030; }
+
+    /* ── Footer ── */
+    .site-footer {
+      background: linear-gradient(to right, #0a1628 0%, #0D1B3E 30%, #1a3a8f 65%, #2952d9 100%);
+      color: rgba(255,255,255,0.75);
+      padding: 56px 64px 32px;
+    }
+    .footer-top {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      flex-wrap: wrap;
+    }
+    .footer-brand-col { max-width: 320px; }
+    .footer-logo { font-size: 16px; font-weight: 700; color: white; margin-bottom: 12px; }
+    .footer-tagline { font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.5); }
+    .footer-links-col h4 {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+    .footer-links-col ul { list-style: none; }
+    .footer-links-col li { margin-bottom: 10px; }
+    .footer-links-col a { font-size: 14px; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+    .footer-links-col a:hover { color: #C9A030; }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 26px; flex-wrap: wrap; gap: 14px;
+    }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+    .footer-gold { font-size: 12px; color: #C9A030; letter-spacing: 0.05em; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .topbar { padding: 0 40px 0 8px; }
+      .topbar-logo img { width: 130px; }
+      .hero-banner { padding: 56px 40px 52px; }
+      .wrap { padding: 48px 40px 72px; }
+      .acc-body-inner { padding-left: 0; }
+      .benefits { grid-template-columns: 1fr; border-top: none; }
+      .benefits > div {
+        border-right: none;
+        border-top: 1px solid rgba(13,27,62,0.1);
+        padding: 22px 0;
+      }
+      .contact-split { grid-template-columns: 1fr; }
+      .site-footer { padding: 48px 24px 28px; }
+      .footer-top { flex-direction: column; gap: 28px; }
+    }
+    @media (max-width: 560px) {
+      .topbar { padding: 0 20px 0 8px; height: 72px; }
+      .topbar-logo img { width: 110px; }
+      .topbar-back span { display: none; }
+      .hero-banner { margin-top: 72px; padding: 44px 24px 40px; }
+      .wrap { padding: 36px 24px 56px; }
+      .acc-header { gap: 16px; padding: 24px 0; }
+      .acc-num { font-size: 22px; width: 32px; }
+      .acc-title { font-size: 17px; }
+      .acc-sub { font-size: 13px; }
+      .acc-body-inner { padding-bottom: 32px; }
+      .card { padding: 24px 20px; }
+      .field-row { grid-template-columns: 1fr; gap: 0; }
+      .btn { width: 100%; justify-content: center; }
+      .acc-item { scroll-margin-top: 90px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Top Bar ── -->
+<div class="topbar">
+  <a href="index.html" class="topbar-logo">
+    <img src="windfall logo.png" alt="Windfall Africa" style="width:180px; height:auto;" />
+  </a>
+  <a href="index.html" class="topbar-back">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Back to home</span>
+  </a>
+</div>
+
+<!-- ── Hero ── -->
+<div class="hero-banner">
+  <div class="hero-banner-inner">
+    <p class="hero-eyebrow">Engage With Us</p>
+    <h1>Every strong partnership begins with a conversation</h1>
+    <p>Whether you are looking to work with us, join our network, or simply stay close to the thinking that shapes how African businesses grow, this is where it starts.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <p class="wrap-intro">Select an option</p>
+
+  <div class="accordion" id="accordion">
+
+    <!-- 01 Partner -->
+    <div class="acc-item" id="partner">
+      <button class="acc-header" aria-expanded="false">
+        <span class="acc-num">01</span>
+        <span class="acc-titles">
+          <span class="acc-title">Partner with us</span>
+          <span class="acc-sub">Work with our team on structure, clarity and growth</span>
+        </span>
+        <span class="acc-icon"></span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p class="acc-lead">We work with organizations ready to close the gap between intention and execution. Tell us where you are, and we will tell you honestly whether we are the right fit.</p>
+          <div class="card">
+            <form data-subject="New partnership enquiry, Windfall Africa" onsubmit="return handleSubmit(event, 'partner-success')">
+              <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" />
+              <div class="field-row">
+                <div class="field">
+                  <label for="p-name">Full name</label>
+                  <input type="text" id="p-name" name="name" required />
+                </div>
+                <div class="field">
+                  <label for="p-org">Organization</label>
+                  <input type="text" id="p-org" name="organization" required />
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="p-email">Work email</label>
+                  <input type="email" id="p-email" name="email" required />
+                </div>
+                <div class="field">
+                  <label for="p-stage">Where you are</label>
+                  <select id="p-stage" name="stage">
+                    <option>Early stage, building foundations</option>
+                    <option>Growing, structure under strain</option>
+                    <option>Established, preparing to scale</option>
+                    <option>Exploring, not sure yet</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="p-msg">What are you trying to solve?</label>
+                <textarea id="p-msg" name="message" placeholder="A few sentences is enough."></textarea>
+              </div>
+              <button type="submit" class="btn">Start the conversation</button>
+              <p class="form-note">We read every enquiry and respond within two working days.</p>
+              <div class="form-success" id="partner-success">Thank you. Your enquiry has been noted, we will be in touch shortly.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 Membership -->
+    <div class="acc-item" id="membership">
+      <button class="acc-header" aria-expanded="false">
+        <span class="acc-num">02</span>
+        <span class="acc-titles">
+          <span class="acc-title">Become a member</span>
+          <span class="acc-sub">Join a network of founders, operators and executives</span>
+        </span>
+        <span class="acc-icon"></span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p class="acc-lead">A community of leaders building organizations that hold their shape as they grow.</p>
+          <div class="benefits">
+            <div>
+              <div class="benefit-num">01</div>
+              <h3>Early access</h3>
+              <p>Frameworks, research and Dialogue episodes before they are published.</p>
+            </div>
+            <div>
+              <div class="benefit-num">02</div>
+              <h3>Peer rooms</h3>
+              <p>Closed sessions with leaders working through the same questions.</p>
+            </div>
+            <div>
+              <div class="benefit-num">03</div>
+              <h3>Direct access</h3>
+              <p>Quarterly clinics with our team to pressure-test your thinking.</p>
+            </div>
+          </div>
+          <div class="card">
+            <form data-subject="New membership request, Windfall Africa" onsubmit="return handleSubmit(event, 'member-success')">
+              <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" />
+              <div class="field-row">
+                <div class="field">
+                  <label for="m-name">Full name</label>
+                  <input type="text" id="m-name" name="name" required />
+                </div>
+                <div class="field">
+                  <label for="m-email">Email address</label>
+                  <input type="email" id="m-email" name="email" required />
+                </div>
+              </div>
+              <div class="field">
+                <label for="m-role">Role and organization</label>
+                <input type="text" id="m-role" name="role" placeholder="e.g. Operations Director, Acme Ltd" />
+              </div>
+              <button type="submit" class="btn btn-gold">Request membership</button>
+              <p class="form-note">Membership is reviewed to keep the network focused and useful.</p>
+              <div class="form-success" id="member-success">Received. We will review your request and come back to you.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 Press -->
+    <div class="acc-item" id="press">
+      <button class="acc-header" aria-expanded="false">
+        <span class="acc-num">03</span>
+        <span class="acc-titles">
+          <span class="acc-title">Sign up for our press releases</span>
+          <span class="acc-sub">For journalists, editors and media partners</span>
+        </span>
+        <span class="acc-icon"></span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p class="acc-lead">Announcements, appointments and published research, sent as they are released.</p>
+          <div class="card" style="max-width:520px;">
+            <form data-subject="New press list signup, Windfall Africa" onsubmit="return handleSubmit(event, 'press-success')">
+              <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" />
+              <div class="field">
+                <label for="pr-email">Email address</label>
+                <input type="email" id="pr-email" name="email" required />
+              </div>
+              <div class="field">
+                <label for="pr-outlet">Publication or outlet</label>
+                <input type="text" id="pr-outlet" name="outlet" />
+              </div>
+              <button type="submit" class="btn">Sign up</button>
+              <div class="form-success" id="press-success">You are on the press list. Thank you.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 Newsletter -->
+    <div class="acc-item" id="newsletter">
+      <button class="acc-header" aria-expanded="false">
+        <span class="acc-num">04</span>
+        <span class="acc-titles">
+          <span class="acc-title">Subscribe to our newsletters</span>
+          <span class="acc-sub">Practical thinking on clarity, structure and growth</span>
+        </span>
+        <span class="acc-icon"></span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p class="acc-lead">No noise, and never more than twice a month.</p>
+          <div class="card" style="max-width:520px;">
+            <form data-subject="New newsletter subscriber, Windfall Africa" onsubmit="return handleSubmit(event, 'news-success')">
+              <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" />
+              <div class="field">
+                <label for="n-email">Email address</label>
+                <input type="email" id="n-email" name="email" required />
+              </div>
+              <div class="field">
+                <label for="n-topic">What interests you most</label>
+                <select id="n-topic" name="interest">
+                  <option>Organizational clarity</option>
+                  <option>Operating models</option>
+                  <option>Scaling and growth</option>
+                  <option>Send me everything</option>
+                </select>
+              </div>
+              <button type="submit" class="btn">Subscribe</button>
+              <div class="form-success" id="news-success">Subscribed. Look out for the next issue.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 Contact -->
+    <div class="acc-item" id="contact">
+      <button class="acc-header" aria-expanded="false">
+        <span class="acc-num">05</span>
+        <span class="acc-titles">
+          <span class="acc-title">Contact us</span>
+          <span class="acc-sub">Speak to our team directly</span>
+        </span>
+        <span class="acc-icon"></span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p class="acc-lead">Call or write, and a member of the team will respond.</p>
+          <div class="contact-split">
+            <div class="card">
+              <div class="contact-list">
+                <a href="tel:+2348039568062">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <span><span class="ci-label">Phone</span>08039568062</span>
+                </a>
+                <a href="mailto:windfallsalesforce@gmail.com">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+                  <span><span class="ci-label">Email</span>windfallsalesforce@gmail.com</span>
+                </a>
+                <div class="ci" style="border-bottom:none;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  <span><span class="ci-label">Hours</span>Monday to Friday, 9am, 5pm WAT</span>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <form data-subject="New contact message, Windfall Africa" onsubmit="return handleSubmit(event, 'contact-success')">
+                <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" />
+                <div class="field">
+                  <label for="c-name">Your name</label>
+                  <input type="text" id="c-name" name="name" required />
+                </div>
+                <div class="field">
+                  <label for="c-email">Email address</label>
+                  <input type="email" id="c-email" name="email" required />
+                </div>
+                <div class="field">
+                  <label for="c-msg">Message</label>
+                  <textarea id="c-msg" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send message</button>
+                <div class="form-success" id="contact-success">Message sent. Thank you for reaching out.</div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 Sign in -->
+    <div class="acc-item" id="sign-in">
+      <button class="acc-header" aria-expanded="false">
+        <span class="acc-num">06</span>
+        <span class="acc-titles">
+          <span class="acc-title">Sign in</span>
+          <span class="acc-sub">Member access to the Windfall network</span>
+        </span>
+        <span class="acc-icon"></span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p class="acc-lead">For existing members of the Windfall network.</p>
+          <div class="card signin-card">
+            <form onsubmit="return handleSignIn(event)">
+              <div class="field">
+                <label for="s-email">Email address</label>
+                <input type="email" id="s-email" required />
+              </div>
+              <div class="field">
+                <label for="s-pass">Password</label>
+                <input type="password" id="s-pass" required />
+              </div>
+              <button type="submit" class="btn">Sign in</button>
+              <div class="form-success" id="signin-success">Member sign-in is opening soon. We will notify you.</div>
+              <p class="signin-alt">Not a member yet? <a href="#membership" data-open="membership">Request access</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand-col">
+      <div class="footer-logo">Windfall Africa</div>
+      <p class="footer-tagline">We help businesses close the gap between intention and execution, building the clarity and structure that makes growth consistent and scalable.</p>
+    </div>
+    <div class="footer-links-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="founders-note.html">Founder's Note</a></li>
+        <li><a href="index.html#what-we-do">What We Do</a></li>
+        <li><a href="index.html#careers">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-col">
+      <h4>Engage</h4>
+      <ul>
+        <li><a href="#partner" data-open="partner">Partner with us</a></li>
+        <li><a href="#membership" data-open="membership">Become a member</a></li>
+        <li><a href="#newsletter" data-open="newsletter">Subscribe</a></li>
+        <li><a href="#contact" data-open="contact">Contact us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Windfall Africa. All rights reserved.</span>
+    <span class="footer-gold">Clarity. Structure. Growth.</span>
+  </div>
+</footer>
+
+<script>
+  var items = Array.prototype.slice.call(document.querySelectorAll('.acc-item'));
+
+  function closeItem(item) {
+    item.classList.remove('open');
+    item.querySelector('.acc-header').setAttribute('aria-expanded', 'false');
+    item.querySelector('.acc-body').style.maxHeight = '0px';
+  }
+
+  function openItem(item) {
+    items.forEach(function(other){ if (other !== item) closeItem(other); });
+    item.classList.add('open');
+    item.querySelector('.acc-header').setAttribute('aria-expanded', 'true');
+    var body = item.querySelector('.acc-body');
+    body.style.maxHeight = body.querySelector('.acc-body-inner').offsetHeight + 40 + 'px';
+  }
+
+  items.forEach(function(item){
+    item.querySelector('.acc-header').addEventListener('click', function(){
+      if (item.classList.contains('open')) closeItem(item);
+      else openItem(item);
+    });
+  });
+
+  // Recalculate height after transitions / resize so content is never clipped
+  window.addEventListener('resize', function(){
+    var open = document.querySelector('.acc-item.open');
+    if (open) {
+      var body = open.querySelector('.acc-body');
+      body.style.maxHeight = body.querySelector('.acc-body-inner').offsetHeight + 40 + 'px';
+    }
+  });
+
+  // Open the right panel when arriving via a hash link
+  function openFromHash() {
+    var id = window.location.hash.replace('#', '');
+    if (!id) return;
+    var target = document.getElementById(id);
+    if (target && target.classList.contains('acc-item')) {
+      openItem(target);
+      setTimeout(function(){ target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80);
+    }
+  }
+  window.addEventListener('load', openFromHash);
+  window.addEventListener('hashchange', openFromHash);
+
+  // In-page links that should open a panel
+  document.querySelectorAll('[data-open]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      var target = document.getElementById(link.getAttribute('data-open'));
+      if (target) {
+        openItem(target);
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  /* ══════════════════════════════════════════════════════════════
+     FORM DELIVERY, Web3Forms
+     Paste your access key below. Get one free (no signup) at
+     https://web3forms.com  ,  enter your email, they send the key.
+     Submissions arrive at that email address.
+     ══════════════════════════════════════════════════════════════ */
+  var WEB3FORMS_ACCESS_KEY = 'ca702058-5fa3-4544-8a27-bbb57727ac47';
+
+  function refreshOpenHeight(extra) {
+    var open = document.querySelector('.acc-item.open');
+    if (!open) return;
+    var body = open.querySelector('.acc-body');
+    body.style.maxHeight = body.querySelector('.acc-body-inner').offsetHeight + (extra || 40) + 'px';
+  }
+
+  function showMessage(box, text, isError) {
+    box.textContent = text;
+    box.classList.toggle('error', !!isError);
+    box.classList.add('show');
+    refreshOpenHeight(70);
+  }
+
+  /* Sign-in stays local. Credentials are never transmitted anywhere,
+     this is a placeholder until real member auth is built. */
+  function handleSignIn(e) {
+    e.preventDefault();
+    var box = document.getElementById('signin-success');
+    box.classList.add('show');
+    e.target.reset();
+    refreshOpenHeight(70);
+    setTimeout(function(){ box.classList.remove('show'); refreshOpenHeight(); }, 6000);
+    return false;
+  }
+
+  function handleSubmit(e, successId) {
+    e.preventDefault();
+    var form = e.target;
+    var box = document.getElementById(successId);
+    var btn = form.querySelector('button[type="submit"]');
+    var originalText = btn.textContent;
+    var successText = box.dataset.msg || box.textContent;
+    box.dataset.msg = successText;
+
+    if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY.indexOf('PASTE') === 0) {
+      showMessage(box, 'Form is not connected yet. Add your Web3Forms access key to enable delivery.', true);
+      return false;
+    }
+
+    var payload = { access_key: WEB3FORMS_ACCESS_KEY };
+    new FormData(form).forEach(function(value, key){ payload[key] = value; });
+    payload.subject = form.dataset.subject || 'New enquiry, Windfall Africa';
+    payload.from_name = 'Windfall Africa website';
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    box.classList.remove('show');
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        if (data.success) {
+          showMessage(box, successText, false);
+          form.reset();
+          setTimeout(function(){ box.classList.remove('show'); refreshOpenHeight(); }, 7000);
+        } else {
+          showMessage(box, 'Something went wrong. Please email us directly at windfallsalesforce@gmail.com', true);
+        }
+      })
+      .catch(function(){
+        showMessage(box, 'Network error. Please email us directly at windfallsalesforce@gmail.com', true);
+      })
+      .finally(function(){
+        btn.disabled = false;
+        btn.textContent = originalText;
+      });
+
+    return false;
+  }
+</script>
+
+</body>
+</html>
