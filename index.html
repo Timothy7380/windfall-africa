@@ -454,6 +454,11 @@
       color: #C9A030;
     }
     .subscribe-msg.show, .auth-msg.show { display: block; }
+    #mission-subscribe-msg {
+      margin: 14px 0 0;
+      font-size: 14px;
+      position: relative; z-index: 2;
+    }
     .auth-msg { margin: 12px 0 0; }
     .subscribe-msg.error, .auth-msg.error { color: #ff9d9d; }
     .hero-subscribe-form button:disabled { opacity: 0.6; cursor: default; }
@@ -1220,10 +1225,12 @@
       We work with organizations to define how they are structured, how they are positioned
       and how they translate direction into consistent and scalable execution.
     </p>
-    <form class="newsletter-form" onsubmit="return false;">
-      <input type="email" placeholder="Email address" />
+    <form class="newsletter-form" id="mission-subscribe-form">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" />
+      <input type="email" name="email" placeholder="Email address" required />
       <button type="submit">Subscribe</button>
     </form>
+    <p class="subscribe-msg" id="mission-subscribe-msg"></p>
   </div>
   <div class="newsletter-right"></div>
 </section>
@@ -1581,49 +1588,57 @@
     });
   })();
 
-  /* ── Hero email subscribe, delivered via Web3Forms ── */
+  /* ── Email subscribe forms, delivered via Web3Forms ── */
   (function(){
-    var form = document.getElementById('hero-subscribe-form');
-    var msg  = document.getElementById('subscribe-msg');
-    if (!form || !msg) return;
-
     var ACCESS_KEY = 'ca702058-5fa3-4544-8a27-bbb57727ac47';
 
-    function say(text, isError) {
-      msg.textContent = text;
-      msg.classList.toggle('error', !!isError);
-      msg.classList.add('show');
+    function wireSubscribe(formId, msgId, subject) {
+      var form = document.getElementById(formId);
+      var msg  = document.getElementById(msgId);
+      if (!form || !msg) return;
+
+      function say(text, isError) {
+        msg.textContent = text;
+        msg.classList.toggle('error', !!isError);
+        msg.classList.add('show');
+      }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var label = btn.textContent;
+        var payload = { access_key: ACCESS_KEY };
+        new FormData(form).forEach(function(v, k){ payload[k] = v; });
+        payload.subject = subject;
+        payload.from_name = 'Windfall Africa website';
+
+        btn.disabled = true;
+        msg.classList.remove('show');
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload)
+        })
+          .then(function(r){ return r.json(); })
+          .then(function(data){
+            if (data.success) {
+              say('Thank you, you are subscribed.', false);
+              form.reset();
+              setTimeout(function(){ msg.classList.remove('show'); }, 7000);
+            } else {
+              say('Something went wrong. Please try again.', true);
+            }
+          })
+          .catch(function(){ say('Network error. Please try again.', true); })
+          .finally(function(){ btn.disabled = false; btn.textContent = label; });
+      });
     }
 
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      var btn = form.querySelector('button[type="submit"]');
-      var payload = { access_key: ACCESS_KEY };
-      new FormData(form).forEach(function(v, k){ payload[k] = v; });
-      payload.subject = 'New hero subscriber, Windfall Africa';
-      payload.from_name = 'Windfall Africa website';
-
-      btn.disabled = true;
-      msg.classList.remove('show');
-
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload)
-      })
-        .then(function(r){ return r.json(); })
-        .then(function(data){
-          if (data.success) {
-            say('Thank you, you are subscribed.', false);
-            form.reset();
-            setTimeout(function(){ msg.classList.remove('show'); }, 7000);
-          } else {
-            say('Something went wrong. Please try again.', true);
-          }
-        })
-        .catch(function(){ say('Network error. Please try again.', true); })
-        .finally(function(){ btn.disabled = false; });
-    });
+    wireSubscribe('hero-subscribe-form', 'subscribe-msg',
+      'New hero subscriber, Windfall Africa');
+    wireSubscribe('mission-subscribe-form', 'mission-subscribe-msg',
+      'New newsletter subscriber (Our Mission), Windfall Africa');
   })();
 </script>
 
