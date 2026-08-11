@@ -102,11 +102,20 @@
       margin-bottom: 28px;
     }
     .article-body p:last-of-type { margin-bottom: 0; }
+    /* Intro: portrait beside quote + opening text */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(240px, 320px) 1fr;
+      gap: 52px;
+      align-items: start;
+      margin-bottom: 56px;
+    }
+    .intro-text .pull-quote { margin-bottom: 32px; }
+    .intro-text .article-body p:last-child { margin-bottom: 0; }
     .founder-portrait-wrap {
-      float: left;
-      width: min(300px, 42%);
-      margin: 26px 32px 20px 20px;
       position: relative;
+      margin: 0;
+      overflow: hidden;
     }
     .founder-portrait-wrap::before {
       content: '';
@@ -123,38 +132,30 @@
       display: block;
     }
     .founder-caption {
-      position: relative; z-index: 1;
-      margin-top: 14px;
-      padding-left: 14px;
-      border-left: 3px solid #C9A030;
+      position: absolute; z-index: 2;
+      left: 0; right: 0; bottom: 0;
+      padding: 48px 18px 16px;
+      background: linear-gradient(to top, rgba(10,18,44,0.94) 20%, rgba(10,18,44,0.6) 60%, rgba(10,18,44,0) 100%);
     }
     .founder-name {
       display: block;
-      font-size: 17px; font-weight: 700;
-      color: #0D1B3E; line-height: 1.3;
+      font-size: 18px; font-weight: 700;
+      color: white; line-height: 1.3;
     }
     .founder-role {
       display: block;
-      font-size: 13px; font-weight: 500;
-      letter-spacing: 0.04em;
-      color: #666; margin-top: 3px;
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: #C9A030; margin-top: 4px;
     }
-    @media (max-width: 640px) {
-      .founder-portrait-wrap {
-        float: none;
-        width: calc(100% - 20px);
-        max-width: 420px;
-        margin: 26px auto 28px;
+    @media (max-width: 860px) {
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 44px;
       }
+      .founder-portrait-wrap { max-width: 420px; margin: 0 auto; width: 100%; }
     }
-
-    /* Everything below the intro clears the floated portrait */
-    .callout,
-    .principles,
-    .section-divider,
-    .closing,
-    .back-btn-wrap { clear: both; }
-    .callout + .article-body p { text-indent: 0; }
 
     /* Section break */
     .section-divider {
@@ -383,29 +384,33 @@
 <!-- ── Article Body ── -->
 <div class="article-wrap">
 
-  <figure class="founder-portrait-wrap">
-    <img src="founder-portrait.jpg" alt="Eniola Cmas, Founder of Windfall Africa" class="founder-portrait" loading="lazy" decoding="async" />
-    <figcaption class="founder-caption">
-      <span class="founder-name">Eniola Cmas</span>
-      <span class="founder-role">Founder, Windfall Africa</span>
-    </figcaption>
-  </figure>
+  <div class="intro-grid">
+    <figure class="founder-portrait-wrap">
+      <img src="founder-portrait.jpg" alt="Eniola Cmas, Founder of Windfall Africa" class="founder-portrait" loading="lazy" decoding="async" />
+      <figcaption class="founder-caption">
+        <span class="founder-name">Eniola Cmas</span>
+        <span class="founder-role">Founder, Windfall Africa</span>
+      </figcaption>
+    </figure>
 
-  <div class="pull-quote">
-    <p>"The real constraint in most organizations is rarely capability. It is clarity."</p>
-  </div>
+    <div class="intro-text">
+      <div class="pull-quote">
+        <p>"The real constraint in most organizations is rarely capability. It is clarity."</p>
+      </div>
 
-  <div class="article-body">
-    <p>I have worked in environments where roles were unclear, expectations shifted, and execution lacked alignment. Over time, I learned that talent is not enough without structure.</p>
+      <div class="article-body">
+        <p>I have worked in environments where roles were unclear, expectations shifted, and execution lacked alignment. Over time, I learned that talent is not enough without structure.</p>
 
-    <p>What stood out for me was not the absence of effort, but the absence of a system that consistently aligned people, decisions and execution to a shared direction.</p>
+        <p>What stood out for me was not the absence of effort, but the absence of a system that consistently aligned people, decisions and execution to a shared direction.</p>
+      </div>
+    </div>
   </div>
 
   <div class="callout">
     <p>When structure is missing, execution becomes inconsistent, decisions become fragmented and growth becomes difficult to sustain beyond short-term effort.</p>
   </div>
 
-  <div class="article-body" style="clear:both;">
+  <div class="article-body">
     <p>This shaped how Windfall Africa operates today. These principles reflect how we believe organizations should be designed to function, not just how work should be delivered.</p>
   </div>
 
